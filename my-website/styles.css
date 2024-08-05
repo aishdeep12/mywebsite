@@ -27,7 +27,7 @@ main {
 #experience-section {
     display: flex;
     align-items: flex-start;
-    margin-bottom: 5px; /* Increased margin for better spacing */
+    margin-bottom: 5px; /* Adjust margin between sections */
 }
 
 #introduction {
@@ -60,7 +60,11 @@ main {
 }
 
 section {
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* General margin-bottom for sections */
+}
+
+#education {
+    margin-top: 10px; /* Reduces space above education section */
 }
 
 h2 {
