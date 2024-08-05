@@ -42,7 +42,8 @@ main {
     border-radius: 50%; /* Make it circular */
     border: 3px solid #002147; /* Optional: adds a border around the circular image */
     object-fit: cover; /* Ensures the image covers the circular area */
-    object-position: center 20%; /* Adjusts image position within the circle */
+    object-position: center; /* Adjusts image position within the circle */
+    overflow: hidden; /* Ensures no part of the image overflows outside the circle */
 }
 
 #experience {
