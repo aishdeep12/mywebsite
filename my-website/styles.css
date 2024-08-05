@@ -1,69 +1,66 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-    color: #333;
 }
 
 header {
-    background-color: #003366; /* Darker navy blue */
+    background-color: #003366; /* Navy Blue */
     color: white;
-    padding: 10px 0;
     text-align: center;
+    padding: 1rem 0;
 }
 
+main {
+    margin: 20px;
+}
+
+/* Introduction Section */
 #introduction-section {
     display: flex;
-    align-items: flex-start; /* Align items to the start (top) */
+    align-items: center;
     justify-content: space-between;
-    padding: 20px;
-    margin-bottom: 10px; /* Reduce the margin to decrease space below */
+    margin-bottom: 20px;
 }
 
 #introduction {
     flex: 2;
-    margin-right: 20px;
-    text-align: left; /* Ensure text is left-aligned */
+    text-align: left;
 }
 
 #profile-image {
     flex: 1;
-    max-height: 10cm;
     max-width: 100%;
     height: auto;
-    border-radius: 50%; /* Optional: Make the image round */
+    max-height: 10cm; /* Maximum height of the image */
 }
 
-main {
-    padding: 20px;
-}
-
+/* Section Styles */
 section {
-    margin-bottom: 10px; /* Reduce space between sections */
+    margin-bottom: 20px;
 }
 
 h2 {
-    color: #003366; /* Darker navy blue */
+    color: #003366; /* Navy Blue */
+}
+
+p {
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    text-align: left;
 }
 
 ul {
-    list-style-type: none;
-    padding: 0;
+    padding-left: 20px;
 }
 
-ul li {
-    background: #eee;
-    margin: 5px 0;
-    padding: 10px;
-}
-
+/* Footer Styles */
 footer {
-    text-align: center;
-    padding: 10px 0;
-    background-color: #003366; /* Darker navy blue */
+    background-color: #003366; /* Navy Blue */
     color: white;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+    text-align: center;
+    padding: 1rem 0;
 }
