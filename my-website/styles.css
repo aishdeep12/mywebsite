@@ -48,7 +48,7 @@ main {
 }
 
 #profile-image img {
-    width: 110%; /* Increase width to scale up the image */
+    width: 120%; /* Increase width to scale up the image */
     height: auto; /* Maintains aspect ratio */
     object-fit: cover; /* Ensures image covers container */
     transform: scale(0.65); /* Scales the image down to 80% of its original size */
