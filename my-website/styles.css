@@ -27,7 +27,7 @@ main {
 #experience-section {
     display: flex;
     align-items: flex-start;
-    margin-bottom: 10px;
+    margin-bottom: 20px; /* Increased margin for better spacing */
 }
 
 #introduction {
@@ -38,7 +38,7 @@ main {
 #profile-image {
     flex: 1;
     height: 12cm; /* Set height for circular shape */
-    width: 10cm;  /* Set width equal to height */
+    width: 12cm;  /* Set width equal to height */
     border-radius: 50%; /* Makes the container circular */
     border: 3px solid #002147; /* Optional: border around the circle */
     overflow: hidden; /* Hides parts of the image outside the circle */
@@ -48,17 +48,16 @@ main {
 }
 
 #profile-image img {
-    width: 130%; /* Increase width to scale up the image */
+    width: 150%; /* Increase width to scale up the image */
     height: auto; /* Maintains aspect ratio */
     object-fit: cover; /* Ensures image covers container */
-    transform: scale(0.80); /* Scales the image down to 80% of its original size */
-    margin-top: 0px; 
+    transform: scale(0.85); /* Scales the image down to 85% of its original size */
 }
+
 #experience {
     flex: 2;
     margin-right: 20px;
 }
-
 
 section {
     margin-bottom: 20px;
@@ -91,4 +90,58 @@ footer {
     padding: 20px 50px;
     text-align: center;
     color: #fff;
+}
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
+    #introduction-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    #introduction {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    #profile-image {
+        width: 80%; /* Adjust size for mobile */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    #experience {
+        margin-right: 0;
+    }
+
+    footer {
+        padding: 10px;
+    }
+
+    header {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    #profile-image {
+        width: 100%; /* Full width for very small screens */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    footer {
+        padding: 5px;
+    }
+
+    header {
+        padding: 10px;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5em; /* Adjust header size */
+    }
 }
