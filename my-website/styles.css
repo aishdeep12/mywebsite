@@ -79,11 +79,12 @@ main {
     display: flex;
     align-items: flex-start; /* Aligns items at the top */
     margin-bottom: 20px; /* Space below the section */
+    flex-direction: row-reverse;
 }
 
 #experience {
     flex: 2; /* Takes up 2/3 of the space */
-    margin-right: 20px; /* Space between text and image */
+    margin-left: 20px; /* Space between text and image */
 }
 
 #additional-image {
