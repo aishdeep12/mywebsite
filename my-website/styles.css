@@ -8,7 +8,7 @@ body {
 
 header {
     background-color: #001a33; /* Darker tone of navy blue */
-    padding: 20px 20px;
+    padding: 20px 30px;
     text-align: center;
 }
 
@@ -68,7 +68,7 @@ a:hover {
 
 footer {
     background-color: #001a33; /* Darker tone of navy blue */
-    padding: 20px 20px;
+    padding: 20px 30px;
     text-align: center;
     color: #fff;
 }
