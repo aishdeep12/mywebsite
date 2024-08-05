@@ -1,66 +1,70 @@
-/* General Styles */
 body {
     font-family: Arial, sans-serif;
+    color: #fff;
+    background-color: #002147; /* Navy blue background */
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
 }
 
 header {
-    background-color: #003366; /* Navy Blue */
-    color: white;
+    background-color: #001a33; /* Darker tone of navy blue */
+    padding: 10px 20px;
     text-align: center;
-    padding: 1rem 0;
+}
+
+h1 {
+    margin: 0;
+    color: #fff;
 }
 
 main {
-    margin: 20px;
+    padding: 20px;
 }
 
-/* Introduction Section */
 #introduction-section {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: flex-start;
     margin-bottom: 20px;
 }
 
 #introduction {
     flex: 2;
-    text-align: left;
+    margin-right: 20px;
 }
 
 #profile-image {
     flex: 1;
-    max-width: 100%;
-    height: auto;
-    max-height: 10cm; /* Maximum height of the image */
+    height: 10cm;
+    width: auto;
+    border-radius: 50%;
+    border: 3px solid #fff; /* Optional: adds a border around the circular image */
 }
 
-/* Section Styles */
 section {
     margin-bottom: 20px;
 }
 
 h2 {
-    color: #003366; /* Navy Blue */
-}
-
-p {
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    text-align: left;
+    color: #fff;
 }
 
 ul {
+    color: #ddd;
     padding-left: 20px;
 }
 
-/* Footer Styles */
+a {
+    color: #1e90ff; /* Light blue color for links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 footer {
-    background-color: #003366; /* Navy Blue */
-    color: white;
+    background-color: #001a33; /* Darker tone of navy blue */
+    padding: 10px 20px;
     text-align: center;
-    padding: 1rem 0;
+    color: #fff;
 }
