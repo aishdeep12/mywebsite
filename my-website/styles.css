@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     color: #fff;
-    background-color: #002147; /* Revert to old navy blue background */
+    background-color: #002147; /* Old navy blue background color */
     margin: 0;
     padding: 0;
 }
@@ -19,6 +19,8 @@ h1 {
 
 main {
     padding: 20px;
+    background-color: #003366; /* Light color for content areas */
+    border-radius: 8px; /* Optional: rounded corners for content areas */
 }
 
 #introduction-section {
