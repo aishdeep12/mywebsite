@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     color: #fff;
-    background-color: #002147; /* Navy blue background */
+    background-color: #002147; /* Revert to old navy blue background */
     margin: 0;
     padding: 0;
 }
@@ -39,6 +39,7 @@ main {
     border-radius: 50%; /* Make it circular */
     border: 3px solid #fff; /* Optional: adds a border around the circular image */
     object-fit: cover; /* Ensures the image covers the circular area */
+    object-position: center 20%; /* Adjusts image position within the circle */
 }
 
 section {
