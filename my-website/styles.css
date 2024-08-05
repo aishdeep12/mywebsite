@@ -72,10 +72,11 @@ main {
 }
 
 #additional-image img {
-    width: 100%; /* Make image fill the container */
+    width: 90%; /* Make image fill the container */
     height: auto; /* Maintain aspect ratio */
     border-radius: 8px; /* Optional: rounded corners for images */
     object-fit: cover; /* Ensure image covers container */
+    margin-top: 20px;
 }
 
 section {
@@ -89,6 +90,7 @@ section {
 
 
 h2 {
+    margin-top:-30;
     color: #002147;
 }
 
