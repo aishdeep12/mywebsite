@@ -64,7 +64,7 @@ section {
 }
 
 #education {
-    margin-top: 10px; /* Reduces space above education section */
+    margin-top: -10px; /* Reduces space above education section */
 }
 
 h2 {
