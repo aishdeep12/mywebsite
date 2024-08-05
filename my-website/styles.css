@@ -37,7 +37,7 @@ main {
 
 #profile-image {
     flex: 1;
-    height: 10cm; /* Set height for circular shape */
+    height: 12cm; /* Set height for circular shape */
     width: 10cm;  /* Set width equal to height */
     border-radius: 50%; /* Makes the container circular */
     border: 3px solid #002147; /* Optional: border around the circle */
@@ -48,7 +48,7 @@ main {
 }
 
 #profile-image img {
-    width: 120%; /* Increase width to scale up the image */
+    width: 130%; /* Increase width to scale up the image */
     height: auto; /* Maintains aspect ratio */
     object-fit: cover; /* Ensures image covers container */
     transform: scale(0.80); /* Scales the image down to 80% of its original size */
