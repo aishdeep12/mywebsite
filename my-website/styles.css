@@ -19,7 +19,7 @@ h1 {
 
 main {
     padding: 20px;
-    background-color: #003366; /* Light color for content areas */
+    background-color: #fff; /* Light color for content areas */
     border-radius: 8px; /* Optional: rounded corners for content areas */
 }
 
@@ -39,7 +39,7 @@ main {
     height: 10cm; /* Set height */
     width: 10cm;  /* Set width to match height for circular shape */
     border-radius: 50%; /* Make it circular */
-    border: 3px solid #fff; /* Optional: adds a border around the circular image */
+    border: 3px solid #002147; /* Optional: adds a border around the circular image */
     object-fit: cover; /* Ensures the image covers the circular area */
     object-position: center 20%; /* Adjusts image position within the circle */
 }
@@ -49,7 +49,7 @@ section {
 }
 
 h2 {
-    color: #fff;
+    color: #002147;
 }
 
 ul {
@@ -58,7 +58,7 @@ ul {
 }
 
 a {
-    color: #1e90ff; /* Light blue color for links */
+    color: #001a33; /* Light blue color for links */
     text-decoration: none;
 }
 
