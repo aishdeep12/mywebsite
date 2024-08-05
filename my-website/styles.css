@@ -14,7 +14,7 @@ header {
 
 h1 {
     margin: 0;
-    color: #fff;
+    color: #C0C0C0;
 }
 
 .project-button {
@@ -37,7 +37,7 @@ h1 {
 
 main {
     padding: 20px;
-    background-color: #fff; /* Light color for content areas */
+    background-color: #C0C0C0; /* Light color for content areas */
     border-radius: 8px; /* Optional: rounded corners for content areas */
 }
 
@@ -134,7 +134,7 @@ footer {
     background-color: #001a33; /* Darker tone of navy blue */
     padding: 20px 50px;
     text-align: center;
-    color: #fff;
+    color: #C0C0C0;
 }
 
 /* Media Queries for Mobile Devices */
