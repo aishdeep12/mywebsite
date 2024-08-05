@@ -51,15 +51,6 @@ main {
     margin-right: 20px;
 }
 
-#experience-image {
-    flex: 1;
-    height: 10cm; /* Set height */
-    width: 10cm;  /* Set width to match height for circular shape */
-    border-radius: 50%; /* Make it circular */
-    border: 3px solid #002147; /* Optional: adds a border around the circular image */
-    object-fit: cover; /* Ensures the image covers the circular area */
-    object-position: center 20%; /* Adjusts image position within the circle */
-}
 
 section {
     margin-bottom: 20px;
