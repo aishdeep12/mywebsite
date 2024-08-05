@@ -7,19 +7,29 @@ body {
 }
 
 header {
-    background-color: #4CAF50;
+    background-color: #000080; /* Navy blue */
     color: white;
     padding: 10px 0;
     text-align: center;
-    position: relative; /* Add this line */
+}
+
+#introduction-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+#introduction {
+    flex: 2;
+    margin-right: 20px;
 }
 
 #profile-image {
-    position: absolute; /* Add this line */
-    top: 10px; /* Adjust as needed */
-    right: 10px; /* Adjust as needed */
-    width: 100px; /* Adjust size as needed */
-    height: auto; /* Maintain aspect ratio */
+    flex: 1;
+    max-height: 10cm;
+    max-width: 100%;
+    height: auto;
     border-radius: 50%; /* Make the image round, optional */
 }
 
@@ -32,7 +42,7 @@ section {
 }
 
 h2 {
-    color: #4CAF50;
+    color: #000080; /* Navy blue */
 }
 
 ul {
@@ -49,7 +59,7 @@ ul li {
 footer {
     text-align: center;
     padding: 10px 0;
-    background-color: #4CAF50;
+    background-color: #000080; /* Navy blue */
     color: white;
     position: fixed;
     width: 100%;
