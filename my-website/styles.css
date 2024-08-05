@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background-color: #000080; /* Navy blue */
+    background-color: #003366; /* Darker navy blue */
     color: white;
     padding: 10px 0;
     text-align: center;
@@ -15,14 +15,16 @@ header {
 
 #introduction-section {
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* Align items to the start (top) */
     justify-content: space-between;
     padding: 20px;
+    margin-bottom: 10px; /* Reduce the margin to decrease space below */
 }
 
 #introduction {
     flex: 2;
     margin-right: 20px;
+    text-align: left; /* Ensure text is left-aligned */
 }
 
 #profile-image {
@@ -30,7 +32,7 @@ header {
     max-height: 10cm;
     max-width: 100%;
     height: auto;
-    border-radius: 50%; /* Make the image round, optional */
+    border-radius: 50%; /* Optional: Make the image round */
 }
 
 main {
@@ -38,11 +40,11 @@ main {
 }
 
 section {
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* Reduce space between sections */
 }
 
 h2 {
-    color: #000080; /* Navy blue */
+    color: #003366; /* Darker navy blue */
 }
 
 ul {
@@ -59,7 +61,7 @@ ul li {
 footer {
     text-align: center;
     padding: 10px 0;
-    background-color: #000080; /* Navy blue */
+    background-color: #003366; /* Darker navy blue */
     color: white;
     position: fixed;
     width: 100%;
