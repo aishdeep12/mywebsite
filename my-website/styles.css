@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     color: #001a33;
-    background-color: #D3D3D3 ; /* Old navy blue background color */
+    background-color: #F0F0F0 ; /* Old navy blue background color */
     margin: 0;
     padding: 0;
 }
@@ -14,14 +14,14 @@ header {
 
 h1 {
     margin: 0;
-    color: #D3D3D3 ;
+    color: #F0F0F0 ;
 }
 
 .project-button {
     position: absolute;
     top: 17px;
     right: 10px;
-    background-color: #D3D3D3 ; /* Light grey background */
+    background-color: #F0F0F0 ; /* Light grey background */
     color: #001a33; /* Dark navy blue text */
     padding: 10px 20px;
     border-radius: 25px; /* Rounded corners */
@@ -32,13 +32,13 @@ h1 {
 }
 
 .project-button:hover {
-    background-color: #D3D3D3 ; /* Slightly darker grey on hover */
+    background-color: #F0F0F0 ; /* Slightly darker grey on hover */
 }
 
 
 main {
     padding: 20px;
-    background-color: #D3D3D3 ; /* Light color for content areas */
+    background-color: #F0F0F0 ; /* Light color for content areas */
     border-radius: 8px; /* Optional: rounded corners for content areas */
 }
 
@@ -136,7 +136,7 @@ footer {
     background-color: #001a33; /* Darker tone of navy blue */
     padding: 20px 50px;
     text-align: center;
-    color: #D3D3D3;
+    color: #F0F0F0;
 }
 
 /* Media Queries for Mobile Devices */
