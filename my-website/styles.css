@@ -51,7 +51,7 @@ main {
     width: 130%; /* Increase width to scale up the image */
     height: auto; /* Maintains aspect ratio */
     object-fit: cover; /* Ensures image covers container */
-    transform: scale(0.75); /* Scales the image down to 85% of its original size */
+    transform: scale(0.80); /* Scales the image down to 85% of its original size */
 }
 
 #experience {
