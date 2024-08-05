@@ -37,7 +37,7 @@ main {
 
 #profile-image {
     flex: 1;
-    height: 10cm; /* Set height for circular shape */
+    height: 12cm; /* Set height for circular shape */
     width: 10cm;  /* Set width equal to height */
     border-radius: 50%; /* Creates a circular shape */
     border: 3px solid #002147; /* Optional: border around the circle */
