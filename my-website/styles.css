@@ -37,14 +37,21 @@ main {
 
 #profile-image {
     flex: 1;
-    height: 12cm; /* Set height for circular shape */
+    height: 10cm; /* Set height for circular shape */
     width: 10cm;  /* Set width equal to height */
-    border-radius: 50%; /* Creates a circular shape */
+    border-radius: 50%; /* Makes the container circular */
     border: 3px solid #002147; /* Optional: border around the circle */
     overflow: hidden; /* Hides parts of the image outside the circle */
     display: flex; /* Centers the image inside */
-    align-items: center; /* Vertically center the image */
-    justify-content: center; /* Horizontally center the image */
+    align-items: center; /* Vertically centers the image */
+    justify-content: center; /* Horizontally centers the image */
+}
+
+#profile-image img {
+    width: 120%; /* Increase width to scale up the image */
+    height: auto; /* Maintains aspect ratio */
+    object-fit: cover; /* Ensures image covers container */
+    transform: scale(0.8); /* Scales the image down to 80% of its original size */
 }
 #experience {
     flex: 2;
