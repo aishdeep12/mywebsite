@@ -82,12 +82,12 @@ main {
 }
 
 #experience {
-    flex: 2; /* Takes up 2/3 of the space */
+    flex: 1; /* Takes up 2/3 of the space */
     margin-right: 20px; /* Space between text and image */
 }
 
 #additional-image {
-    flex: 1; /* Takes up 1/3 of the space */
+    flex: 2; /* Takes up 1/3 of the space */
 }
 
 #additional-image img {
