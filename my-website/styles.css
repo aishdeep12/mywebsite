@@ -23,7 +23,8 @@ main {
     border-radius: 8px; /* Optional: rounded corners for content areas */
 }
 
-#introduction-section {
+#introduction-section,
+#experience-section {
     display: flex;
     align-items: flex-start;
     margin-bottom: 20px;
@@ -35,6 +36,21 @@ main {
 }
 
 #profile-image {
+    flex: 1;
+    height: 10cm; /* Set height */
+    width: 10cm;  /* Set width to match height for circular shape */
+    border-radius: 50%; /* Make it circular */
+    border: 3px solid #002147; /* Optional: adds a border around the circular image */
+    object-fit: cover; /* Ensures the image covers the circular area */
+    object-position: center 20%; /* Adjusts image position within the circle */
+}
+
+#experience {
+    flex: 2;
+    margin-right: 20px;
+}
+
+#experience-image {
     flex: 1;
     height: 10cm; /* Set height */
     width: 10cm;  /* Set width to match height for circular shape */
@@ -75,21 +91,4 @@ footer {
     padding: 20px 50px;
     text-align: center;
     color: #fff;
-}
-
-/* Aligns content in the experience section similarly to the introduction section */
-#experience {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-#experience h3 {
-    margin-top: 0;
-    margin-bottom: 5px;
-}
-
-#experience p {
-    margin-top: 0;
-    margin-bottom: 15px;
 }
