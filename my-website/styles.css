@@ -48,10 +48,10 @@ main {
 }
 
 #profile-image img {
-    width: 100%; /* Increase width to scale up the image */
+    width: 110%; /* Increase width to scale up the image */
     height: auto; /* Maintains aspect ratio */
     object-fit: cover; /* Ensures image covers container */
-    transform: scale(0.7); /* Scales the image down to 80% of its original size */
+    transform: scale(0.65); /* Scales the image down to 80% of its original size */
 }
 #experience {
     flex: 2;
