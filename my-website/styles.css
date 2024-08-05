@@ -37,15 +37,15 @@ main {
 
 #profile-image {
     flex: 1;
-    height: 10cm; /* Set height */
-    width: 10cm;  /* Set width to match height for circular shape */
-    border-radius: 50%; /* Make it circular */
-    border: 3px solid #002147; /* Optional: adds a border around the circular image */
-    object-fit: cover; /* Ensures the image covers the circular area */
-    overflow: hidden; /* Ensures no part of the image overflows outside the circle */
-    display: block; /* Ensures the element behaves like a block element */
+    height: 10cm; /* Set height for circular shape */
+    width: 10cm;  /* Set width equal to height */
+    border-radius: 50%; /* Creates a circular shape */
+    border: 3px solid #002147; /* Optional: border around the circle */
+    overflow: hidden; /* Hides parts of the image outside the circle */
+    display: flex; /* Centers the image inside */
+    align-items: center; /* Vertically center the image */
+    justify-content: center; /* Horizontally center the image */
 }
-
 #experience {
     flex: 2;
     margin-right: 20px;
