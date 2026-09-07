@@ -1,221 +1,465 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Aishdeep Kharbanda – AI & Data Consulting | GenAI, Capital Markets, Automation</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    :root {
-      --bg: #0b0f14;
-      --card-bg: #111823;
-      --card-bg-2: #0f1520;
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --accent: #38bdf8;
-      --accent-2: #22d3ee;
-      --gold: #fbbf24;
-      --border: #1f2937;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
-    nav { position: sticky; top: 0; background: rgba(11,15,20,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); z-index: 20; }
-    nav .container { display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; flex-wrap: wrap; gap: 10px; }
-    nav .brand { font-weight: 700; font-size: 1.05rem; }
-    nav .brand span { color: var(--accent); }
-    nav .links { display: flex; gap: 18px; flex-wrap: wrap; font-size: 0.88rem; align-items: center; }
-    nav .links a { color: var(--muted); }
-    nav .links a:hover { color: var(--accent); }
-    nav .nav-cta { background: linear-gradient(90deg, var(--accent), var(--accent-2)); color: #0b0f14 !important; padding: 8px 14px; border-radius: 8px; font-weight: 700; }
-    header { padding: 70px 0 50px; border-bottom: 1px solid var(--border); background: radial-gradient(circle at 80% 0%, rgba(56,189,248,0.08), transparent 50%); }
-    .eyebrow { display: inline-block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); background: rgba(56,189,248,0.1); border: 1px solid rgba(56,189,248,0.3); padding: 5px 12px; border-radius: 999px; margin-bottom: 18px; }
-    .hero { display: grid; grid-template-columns: 1fr; gap: 28px; }
-    @media (min-width: 850px) { .hero { grid-template-columns: 1.6fr 1fr; align-items: start; } }
-    .hero h1 { font-size: 2.3rem; font-weight: 800; line-height: 1.25; margin-bottom: 14px; }
-    .hero h1 .grad { background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .hero .subtitle { font-size: 1.08rem; color: #d1d5db; max-width: 640px; margin-bottom: 22px; }
-    .hero .credentials { font-size: 0.9rem; color: var(--muted); margin-bottom: 26px; }
-    .hero .credentials strong { color: var(--text); }
-    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn { display: inline-block; padding: 12px 20px; border-radius: 8px; font-weight: 700; border: 1px solid var(--border); background: var(--card-bg); color: var(--text); font-size: 0.92rem; }
-    .btn:hover { border-color: var(--accent); text-decoration: none; }
-    .btn-primary { background: linear-gradient(90deg, var(--accent), var(--accent-2)); color: #0b0f14; border-color: transparent; }
-    .btn-primary:hover { opacity: 0.95; text-decoration: none; }
-    .stat-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 24px; }
-    .stat-row { display: flex; justify-content: space-between; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--border); }
-    .stat-row:last-child { border-bottom: none; }
-    .stat-num { font-size: 1.4rem; font-weight: 800; color: var(--accent); }
-    .stat-label { font-size: 0.82rem; color: var(--muted); text-align: right; max-width: 160px; }
-    section { padding: 56px 0; border-bottom: 1px solid var(--border); }
-    section:last-of-type { border-bottom: none; }
-    .section-tag { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
-    h2 { font-size: 1.6rem; margin-bottom: 14px; color: #f9fafb; }
-    .section-intro { color: var(--muted); max-width: 680px; margin-bottom: 32px; font-size: 0.98rem; }
-    .services-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-    @media (min-width: 750px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
-    .service-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 26px; transition: border-color 0.2s; }
-    .service-card:hover { border-color: var(--accent); }
-    .service-icon { width: 44px; height: 44px; border-radius: 10px; background: linear-gradient(135deg, rgba(56,189,248,0.2), rgba(34,211,238,0.1)); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 16px; }
-    .service-card h3 { font-size: 1.08rem; margin-bottom: 10px; color: #f3f4f6; }
-    .service-card p { color: var(--muted); font-size: 0.9rem; margin-bottom: 14px; }
-    .service-card ul { padding-left: 18px; color: #d1d5db; font-size: 0.87rem; }
-    .service-card li { margin-bottom: 6px; }
-    .service-price { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--gold); font-weight: 700; }
-    .process-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
-    @media (min-width: 750px) { .process-grid { grid-template-columns: repeat(4, 1fr); } }
-    .process-step { background: var(--card-bg-2); border: 1px solid var(--border); border-radius: 12px; padding: 20px; position: relative; }
-    .process-num { font-size: 1.8rem; font-weight: 800; color: rgba(56,189,248,0.35); margin-bottom: 8px; }
-    .process-step h4 { font-size: 0.98rem; margin-bottom: 8px; color: #f3f4f6; }
-    .process-step p { font-size: 0.85rem; color: var(--muted); }
-    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 22px; margin-bottom: 16px; }
-    .role-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px; margin-bottom: 4px; }
-    .role-title { font-weight: 700; font-size: 1.02rem; }
-    .role-company { color: var(--accent); font-size: 0.92rem; font-weight: 600; }
-    .role-meta { color: var(--muted); font-size: 0.83rem; margin-bottom: 8px; }
-    .role p, .role ul { color: #d1d5db; font-size: 0.92rem; }
-    .role ul { padding-left: 18px; margin-top: 8px; }
-    .role li { margin-bottom: 5px; }
-    .current-badge { display: inline-block; background: rgba(56,189,248,0.15); color: var(--accent); font-size: 0.68rem; font-weight: 700; padding: 3px 8px; border-radius: 999px; margin-left: 8px; vertical-align: middle; }
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
-    .skill-tag { background: var(--card-bg-2); border: 1px solid var(--border); border-radius: 8px; padding: 9px 10px; font-size: 0.8rem; color: #d1d5db; text-align: center; }
-    .skill-group-title { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin: 22px 0 10px; }
-    .skill-group-title:first-child { margin-top: 0; }
-    .two-col { display: grid; grid-template-columns: 1fr; gap: 16px; }
-    @media (min-width: 700px) { .two-col { grid-template-columns: 1fr 1fr; } }
-    .edu-item, .cert-item { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px; margin-bottom: 14px; }
-    .edu-school, .cert-name { font-weight: 700; margin-bottom: 4px; }
-    .edu-degree, .cert-provider { color: var(--muted); font-size: 0.88rem; }
-    .edu-period { color: var(--muted); font-size: 0.83rem; margin-top: 4px; }
-    .cta-band { background: linear-gradient(135deg, rgba(56,189,248,0.12), rgba(34,211,238,0.05)); border: 1px solid rgba(56,189,248,0.25); border-radius: 18px; padding: 40px; text-align: center; }
-    .cta-band h2 { margin-bottom: 12px; }
-    .cta-band p { color: #d1d5db; max-width: 560px; margin: 0 auto 24px; }
-    .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    footer { padding: 40px 0; color: var(--muted); font-size: 0.88rem; text-align: center; }
-    footer a { color: var(--accent); }
-    .highlight { color: var(--accent); }
-    .project-link { display: inline-block; margin-top: 10px; font-size: 0.88rem; }
-  </style>
+<meta charset="UTF-8">
+<title>Aishdeep Kharbanda | GenAI Engineer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Lead GenAI Engineer specializing in agentic systems, RAG, document intelligence, and production AI platforms">
+<style>
+:root {
+  --accent: #7c5cff;
+  --accent-soft: rgba(124, 92, 255, 0.14);
+  --bg: #fdfaf6;
+  --card: #ffffff;
+  --text: #2f2a3a;
+  --muted: #6b6478;
+  --heading: #1c1626;
+  --border: #ece3f5;
+}
+
+html[data-theme="dark"] {
+  --accent: #b6a4ff;
+  --bg: #17131f;
+  --card: #221c2e;
+  --text: #e6e0f0;
+  --muted: #a89bbf;
+  --heading: #f5f0ff;
+  --border: #362c46;
+  --accent-soft: rgba(182, 164, 255, 0.16);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.7;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+a { text-decoration: none; color: var(--accent); }
+a:hover { text-decoration: underline; }
+
+.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+.theme-toggle:hover { border-color: var(--accent); }
+.theme-toggle .icon { font-size: 1rem; line-height: 1; }
+
+header {
+  padding: 80px 0 50px;
+  position: relative;
+  text-align: left;
+}
+.profile-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  box-shadow: 0 8px 20px var(--accent-soft);
+  margin-bottom: 25px;
+  object-fit: cover;
+}
+h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.5px; color: var(--heading); }
+.subtitle { font-size: 1.15rem; margin-bottom: 20px; font-weight: 500; color: var(--accent); }
+.intro { font-size: 1.05rem; max-width: 750px; line-height: 1.8; }
+
+section { padding: 60px 0; }
+
+h2 {
+  font-size: 1.6rem;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--heading);
+}
+h2::before {
+  content: "";
+  width: 4px;
+  height: 28px;
+  background: var(--accent);
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.muted { color: var(--muted); }
+
+.grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+@media (min-width: 650px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 900px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+
+.card, .project-card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 26px;
+  background: var(--card);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+.card h3, .project-card h3 { font-size: 1.1rem; margin-bottom: 12px; font-weight: 600; color: var(--heading); }
+.card p, .project-card .desc { font-size: 0.93rem; line-height: 1.7; color: var(--muted); }
+.project-card .desc { margin-bottom: 12px; }
+.project-card a { font-weight: 500; }
+.project-card .lang {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 3px 9px;
+  border-radius: 4px;
+  margin-top: 8px;
+  background: var(--bg);
+  color: var(--muted);
+}
+
+.tech-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.tech-tag {
+  border-radius: 6px;
+  padding: 5px 11px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-soft);
+  color: var(--accent);
+}
+
+.approach-section {
+  border: 1px solid var(--border);
+  padding: 35px;
+  border-radius: 14px;
+  margin-top: 25px;
+  background: var(--card);
+}
+.approach-section ol { padding-left: 22px; }
+.approach-section li { margin-bottom: 10px; line-height: 1.7; }
+
+.stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 20px; }
+@media (min-width: 650px) { .stats-grid { grid-template-columns: repeat(3, 1fr); } }
+.stat-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  background: var(--card);
+}
+.stat-number { font-size: 2rem; font-weight: 700; color: var(--accent); display: block; margin-bottom: 5px; }
+.stat-label { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px; }
+
+footer { padding: 50px 0; font-size: 0.9rem; text-align: center; }
+.social-links { margin-top: 15px; }
+.social-links a { margin: 0 10px; font-weight: 500; }
+
+.highlight-box {
+  border-radius: 0 10px 10px 0;
+  padding: 20px 24px;
+  margin: 25px 0;
+  background: var(--accent-soft);
+  border-left: 3px solid var(--accent);
+}
+.highlight-box p { font-size: 0.95rem; }
+
+.mentor-box {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 30px;
+  margin-top: 10px;
+  background: var(--card);
+}
+
+.section-divider {
+  border: none;
+  height: 1px;
+  background: var(--border);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+</style>
 </head>
 <body>
-  <nav>
-    <div class="container">
-      <div class="brand">Aishdeep <span>Kharbanda</span></div>
-      <div class="links">
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#credentials">Credentials</a>
-        <a href="https://www.instagram.com/analytunb/" target="_blank" rel="noopener">Instagram</a>
-        <a href="#contact" class="nav-cta">Book a Call</a>
+
+<div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+  <span class="icon" id="themeIcon">&#9728;</span>
+  <span id="themeLabel">Light mode</span>
+</div>
+
+<header>
+  <div class="container">
+    <img src="profile.jpg" alt="Aishdeep Kharbanda" class="profile-photo">
+    <h1>Aishdeep Kharbanda</h1>
+    <div class="subtitle">Lead GenAI Engineer Building Intelligent Systems</div>
+    <p class="intro muted">I specialize in generative AI, agentic workflows, document intelligence, retrieval-augmented generation, and production AI platforms. My work spans the full lifecycle from understanding requirements and architecting systems to building, evaluating, deploying, and continuously improving reliable AI solutions that work in production.</p>
+    <div class="stats-grid">
+      <div class="stat-card"><span class="stat-number">22+</span><span class="stat-label muted">Public Repos</span></div>
+      <div class="stat-card"><span class="stat-number">7+</span><span class="stat-label muted">AI Agent Projects</span></div>
+      <div class="stat-card"><span class="stat-number">8+</span><span class="stat-label muted">Years Coding</span></div>
+    </div>
+  </div>
+</header>
+
+<hr class="section-divider">
+
+<section id="projects">
+  <div class="container">
+    <h2>Featured Projects</h2>
+    <div class="grid">
+      <div class="project-card">
+        <h3>ReflexionAgents</h3>
+        <div class="desc muted">Exploring self-improving AI agents through reflexion architecture, iterative learning, and error correction.</div>
+        <a href="https://github.com/aishdeep12/ReflexionAgents" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+        <span class="lang">Python</span>
+      </div>
+      <div class="project-card">
+        <h3>Ollama Agent</h3>
+        <div class="desc muted">A lightweight agent system powered by local language models through Ollama, exploring privacy-conscious AI workflows.</div>
+        <a href="https://github.com/aishdeep12/ollamaAgent" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+        <span class="lang">Jupyter Notebook</span>
+      </div>
+      <div class="project-card">
+        <h3>WhatsApp Agent</h3>
+        <div class="desc muted">An LLM-powered conversational agent integrated with WhatsApp for real-time, intelligent messaging workflows.</div>
+        <a href="https://github.com/aishdeep12/whatsappagent" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+        <span class="lang">Python</span>
+      </div>
+      <div class="project-card">
+        <h3>Hubble</h3>
+        <div class="desc muted">A marketplace mobile application connecting buyers and sellers with a focus on usability and clean interaction design.</div>
+        <a href="https://github.com/aishdeep12/Hubble" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+        <span class="lang">Java</span>
+      </div>
+      <div class="project-card">
+        <h3>Eddufy</h3>
+        <div class="desc muted">An educational mobile application built to support learning experiences through practical software design.</div>
+        <a href="https://github.com/aishdeep12/Eddufy" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+        <span class="lang">Java</span>
       </div>
     </div>
-  </nav>
-  <header>
-    <div class="container">
-      <div class="hero">
-        <div>
-          <div class="eyebrow">AI & Data Consulting</div>
-          <h1>Turning <span class="grad">GenAI & Data Engineering</span> into measurable business outcomes.</h1>
-          <p class="subtitle">I help banks, fintechs, and SMEs design and ship production-grade AI systems — from LLM/RAG platforms to trading analytics and automation pipelines — backed by hands-on experience leading GenAI platform engineering at Citi's Capital Markets Innovation Labs.</p>
-          <div class="credentials"><strong>VP, Lead GenAI/Platform Engineer</strong> at Citi · Based in the Greater Toronto Area · 500+ professional network</div>
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="#contact">Book a Free Consultation</a>
-            <a class="btn" href="#services">View Services</a>
-            <a class="btn" href="https://www.linkedin.com/in/aishdeep-kharbanda-613104b2/" target="_blank" rel="noopener">LinkedIn Profile</a>
-            <a class="btn" href="https://www.instagram.com/analytunb/" target="_blank" rel="noopener">Instagram: @analytunb</a>
-          </div>
+
+    <div class="highlight-box">
+      <p class="muted"><strong>More on GitHub:</strong> <a href="https://github.com/aishdeep12" target="_blank" rel="noopener">@aishdeep12</a> &mdash; public repositories spanning AI agents, mobile applications, and experimental projects.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section id="expertise">
+  <div class="container">
+    <h2>What I Build</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Agentic AI Systems</h3>
+        <p class="muted">Autonomous and collaborative agents with planning, tool use, memory, orchestration, and reflection loops.</p>
+        <div class="tech-list">
+          <span class="tech-tag">LangGraph</span><span class="tech-tag">CrewAI</span><span class="tech-tag">Reflexion</span><span class="tech-tag">Multi-Agent Systems</span><span class="tech-tag">Tool Calling</span><span class="tech-tag">Memory Context</span>
         </div>
-        <div class="stat-card">
-          <div class="stat-row"><div class="stat-num">10+ yrs</div><div class="stat-label">Data, AI & platform engineering experience</div></div>
-          <div class="stat-row"><div class="stat-num">Citi</div><div class="stat-label">Capital Markets Innovation Labs — GenAI leadership</div></div>
-          <div class="stat-row"><div class="stat-num">End-to-End</div><div class="stat-label">From strategy & prototyping to production deployment</div></div>
-          <div class="stat-row"><div class="stat-num">GTA</div><div class="stat-label">Local & remote engagements across Canada</div></div>
+      </div>
+      <div class="card">
+        <h3>RAG Knowledge Systems</h3>
+        <p class="muted">Production-oriented retrieval systems with semantic search, knowledge graphs, reranking, and intelligent chunking.</p>
+        <div class="tech-list">
+          <span class="tech-tag">Gemini Embedding 2</span><span class="tech-tag">FAISS</span><span class="tech-tag">Neo4j</span><span class="tech-tag">Graph RAG</span><span class="tech-tag">Semantic Splitting</span><span class="tech-tag">Reranking</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Document Intelligence</h3>
+        <p class="muted">OCR and multimodal understanding workflows for extracting structured information from complex documents.</p>
+        <div class="tech-list">
+          <span class="tech-tag">Mistral OCR</span><span class="tech-tag">SmolDocling</span><span class="tech-tag">PyMuPDF</span><span class="tech-tag">VLMs</span><span class="tech-tag">Structured Extraction</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>MCP Integrations</h3>
+        <p class="muted">Model Context Protocol implementations, tool interfaces, and integrations that connect language models with real systems.</p>
+        <div class="tech-list">
+          <span class="tech-tag">MCP Servers</span><span class="tech-tag">FastAPI</span><span class="tech-tag">API Design</span><span class="tech-tag">Webhooks</span><span class="tech-tag">Event-Driven Systems</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>LLM Evaluation Metrics</h3>
+        <p class="muted">Evaluation workflows and metrics for measuring quality, groundedness, latency, cost, safety, and system reliability.</p>
+        <div class="tech-list">
+          <span class="tech-tag">Evaluation Pipelines</span><span class="tech-tag">RAGAS</span><span class="tech-tag">Quality Metrics</span><span class="tech-tag">A/B Testing</span><span class="tech-tag">Human Feedback</span><span class="tech-tag">Observability</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Platform Engineering</h3>
+        <p class="muted">Scalable, observable AI infrastructure and deployment workflows built for dependable operation and change.</p>
+        <div class="tech-list">
+          <span class="tech-tag">Docker</span><span class="tech-tag">Kubernetes</span><span class="tech-tag">Async Processing</span><span class="tech-tag">CI/CD</span><span class="tech-tag">Cloud-Native</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Data Engineering</h3>
+        <p class="muted">Robust data pipelines, data stores, and worker-based processing for AI workloads and applications.</p>
+        <div class="tech-list">
+          <span class="tech-tag">Python</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Redis</span><span class="tech-tag">Dramatiq</span><span class="tech-tag">Spark</span><span class="tech-tag">Pandas</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Open-Source Models</h3>
+        <p class="muted">Working with open-source model ecosystems for fine-tuning, inference, and experimentation.</p>
+        <div class="tech-list">
+          <span class="tech-tag">Hugging Face</span><span class="tech-tag">Transformers</span><span class="tech-tag">Model Hub</span><span class="tech-tag">Fine-tuning</span><span class="tech-tag">Inference Endpoints</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Technical Writing</h3>
+        <p class="muted">Writing that breaks down AI systems, agents, and RAG architecture into clear, practical explanations for engineers and builders.</p>
+        <div class="tech-list">
+          <span class="tech-tag">Substack</span><span class="tech-tag">System Design Deep-Dives</span><span class="tech-tag">Developer Education</span><span class="tech-tag">Documentation</span>
         </div>
       </div>
     </div>
-  </header>
-  <main class="container">
-    <section id="services">
-      <div class="section-tag">What I Offer</div>
-      <h2>AI Consulting Services</h2>
-      <p class="section-intro">Fractional and project-based engagements for businesses that want to move from "exploring AI" to "running AI in production" — without hiring a full in-house team.</p>
-      <div class="services-grid">
-        <div class="service-card"><div class="service-icon">🤖</div><h3>GenAI & LLM Platforms</h3><p>Design and build production-grade GenAI systems tailored to your data and workflows.</p><ul><li>RAG pipelines, embeddings, vector search (FAISS)</li><li>Prompt engineering & LLM evaluation/guardrails</li><li>Custom copilots & internal chat assistants</li></ul><div class="service-price">Project-based or monthly retainer</div></div>
-        <div class="service-card"><div class="service-icon">📊</div><h3>Data Engineering & Analytics</h3><p>Build reliable pipelines and dashboards so your team can trust and act on data.</p><ul><li>Python/SQL/Spark pipelines at scale</li><li>Power BI & Tableau dashboards</li><li>ML models: forecasting, classification, clustering</li></ul><div class="service-price">Project-based or monthly retainer</div></div>
-        <div class="service-card"><div class="service-icon">📈</div><h3>Trading & Capital Markets AI</h3><p>Apply GenAI and ML to market data, signals, and reporting — grounded in real capital markets experience.</p><ul><li>Algorithmic trading signal prototypes</li><li>Automated market/news monitoring & alerts</li><li>Risk, reporting & compliance analytics</li></ul><div class="service-price">Project-based, from discovery to pilot</div></div>
-        <div class="service-card"><div class="service-icon">⚙️</div><h3>Workflow Automation</h3><p>Automate repetitive business processes using AI agents and integrations.</p><ul><li>AI-powered content & social media pipelines</li><li>Notification/alerting systems (email, SMS, Slack)</li><li>Integrations across CRMs, sheets, and internal tools</li></ul><div class="service-price">Fixed-scope sprints (2–4 weeks)</div></div>
-        <div class="service-card"><div class="service-icon">🚀</div><h3>MLOps & Production Delivery</h3><p>Take prototypes to reliable, monitored production systems.</p><ul><li>CI/CD pipelines, Docker & Kubernetes deployment</li><li>Model monitoring, versioning & retraining workflows</li><li>Cloud architecture reviews (AWS)</li></ul><div class="service-price">Project-based or retainer</div></div>
-        <div class="service-card"><div class="service-icon">🧭</div><h3>AI Strategy & Advisory</h3><p>Fractional CTO/advisor support for teams planning their AI roadmap.</p><ul><li>AI readiness & opportunity assessments</li><li>Build-vs-buy and vendor evaluation</li><li>Team upskilling & technical mentorship</li></ul><div class="service-price">Hourly or monthly advisory</div></div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section id="approach">
+  <div class="container">
+    <h2>How I Work</h2>
+    <p class="muted" style="margin-bottom: 25px; font-size: 1.02rem;">I bridge requirements with sound architecture and practical engineering. The goal is to create AI systems that are useful, measurable, secure, maintainable, observable, and ready to evolve.</p>
+    <div class="approach-section">
+      <ol class="muted">
+        <li><strong style="color: var(--heading);">Clarify</strong> &mdash; Understand the use case, users, data, constraints, risks, and measures of success</li>
+        <li><strong style="color: var(--heading);">Design</strong> &mdash; Architect a scalable system with the appropriate models, data flows, interfaces, and operational patterns</li>
+        <li><strong style="color: var(--heading);">Implement</strong> &mdash; Build, integrate, evaluate, and iteratively improve the solution through practical engineering</li>
+        <li><strong style="color: var(--heading);">Document</strong> &mdash; Capture decisions and make concepts accessible through mentoring and education</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section id="philosophy">
+  <div class="container">
+    <h2>Philosophy</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Production First</h3>
+        <p class="muted">I focus on systems that work reliably in production, not just demos. Observability, error handling, and scalability are part of the design.</p>
       </div>
-    </section>
-    <section id="process">
-      <div class="section-tag">How I Work</div>
-      <h2>A Simple, Transparent Process</h2>
-      <p class="section-intro">Whether it's a two-week automation sprint or a multi-month platform build, the approach stays the same: understand the problem deeply, prototype fast, and deliver something that actually runs in production.</p>
-      <div class="process-grid">
-        <div class="process-step"><div class="process-num">01</div><h4>Discovery Call</h4><p>We discuss your goals, data, and constraints to scope a clear, realistic engagement.</p></div>
-        <div class="process-step"><div class="process-num">02</div><h4>Proposal & Plan</h4><p>You get a fixed-scope plan with timelines, deliverables, and pricing — no surprises.</p></div>
-        <div class="process-step"><div class="process-num">03</div><h4>Build & Iterate</h4><p>Rapid prototyping with regular check-ins so you see progress and can steer early.</p></div>
-        <div class="process-step"><div class="process-num">04</div><h4>Deploy & Support</h4><p>Production deployment, documentation, and optional ongoing support/retainer.</p></div>
+      <div class="card">
+        <h3>Measure Everything</h3>
+        <p class="muted">Evaluation belongs in the system from the beginning. Quality, latency, cost, safety, and user feedback guide improvement.</p>
       </div>
-    </section>
-    <section id="experience">
-      <div class="section-tag">Track Record</div>
-      <h2>Experience</h2>
-      <div class="card role"><div class="role-header"><div class="role-title">VP, Lead Gen AI/ Platform Engineer<span class="current-badge">CURRENT</span></div><div class="role-meta">July 2026 – Present</div></div><div class="role-company">Citi</div><div class="role-meta">Toronto, ON</div><p>Leading GenAI and platform engineering initiatives within Innovation Labs for Capital Markets, driving the design and delivery of next-generation AI platforms across the business.</p></div>
-      <div class="card role"><div class="role-header"><div class="role-title">AVP, Sr. Gen AI/Data Engineer</div><div class="role-meta">January 2024 – July 2026</div></div><div class="role-company">Citi</div><div class="role-meta">Toronto, ON</div><p>Senior GenAI/Data Engineer in Capital Markets with strong hands-on experience building production-grade GenAI/LLM systems.</p><ul><li>Google Gemini, prompt engineering, RAG pipelines, embeddings, vector search, FAISS, semantic retrieval, chunking, reranking, LLM evaluation, guardrails.</li><li>Large-scale data pipelines using Python, SQL, Spark/PySpark, Pandas/NumPy.</li><li>ML across regression, classification, clustering, time-series, model tuning.</li><li>Dashboards and reporting with Power BI and Tableau.</li><li>Production delivery with CI/CD, Docker/Kubernetes, monitoring.</li></ul></div>
-      <div class="card role"><div class="role-header"><div class="role-title">Data Engineer</div><div class="role-meta">February 2022 – December 2023</div></div><div class="role-company">Citi</div><div class="role-meta">Toronto, Ontario, Canada</div></div>
-      <div class="card role"><div class="role-header"><div class="role-title">Senior Data Analyst</div><div class="role-meta">November 2021 – February 2022</div></div><div class="role-company">Hudson's Bay Company</div><div class="role-meta">Brampton, Ontario, Canada</div></div>
-      <div class="card role"><div class="role-header"><div class="role-title">Data Analyst</div><div class="role-meta">June 2020 – November 2021</div></div><div class="role-company">Hudson's Bay Company</div><div class="role-meta">Brampton, Ontario, Canada</div></div>
-      <div class="card role"><div class="role-header"><div class="role-title">Edufy Android Application</div><div class="role-meta">June 2019 – December 2019</div></div><div class="role-company">Georgian College</div><div class="role-meta">Barrie, ON</div><p>Built an Android application connecting students with peer tutors using Android Studio and Firebase.</p><ul><li>Login/signup, RecyclerView chat, feeds page, information page.</li><li>Android intents, including email intent to Gmail contacts.</li></ul><a class="project-link" href="https://play.google.com/store/apps/details?id=com.edufy.eddufy&hl=en" target="_blank" rel="noopener">→ View Edufy on Google Play</a></div>
-      <div class="card role"><div class="role-header"><div class="role-title">Data Management Executive</div><div class="role-meta">June 2016 – January 2018</div></div><div class="role-company">Tigris Life Science</div><div class="role-meta">Ludhiana, Punjab, India</div></div>
-    </section>
-    <section id="skills">
-      <div class="section-tag">Capabilities</div>
-      <h2>Skills</h2>
-      <div class="skill-group-title">GenAI, ML & Data</div>
-      <div class="skills-grid"><div class="skill-tag">LLM</div><div class="skill-tag">Prompt Engineering</div><div class="skill-tag">RAG</div><div class="skill-tag">Vector Search</div><div class="skill-tag">Machine Learning</div><div class="skill-tag">Model Tuning</div><div class="skill-tag">Data Mining</div><div class="skill-tag">Data Science</div><div class="skill-tag">Statistical Analysis</div><div class="skill-tag">Large-Scale Data Processing</div><div class="skill-tag">Data Visualization</div><div class="skill-tag">Dashboards</div></div>
-      <div class="skill-group-title">Engineering & Programming</div>
-      <div class="skills-grid"><div class="skill-tag">Python</div><div class="skill-tag">SQL</div><div class="skill-tag">R Programming</div><div class="skill-tag">Pandas/NumPy</div><div class="skill-tag">Platform Engineering</div><div class="skill-tag">Production Delivery</div><div class="skill-tag">Firebase</div><div class="skill-tag">Android Development</div><div class="skill-tag">CI/CD</div><div class="skill-tag">Docker</div><div class="skill-tag">Kubernetes</div><div class="skill-tag">AWS</div></div>
-      <div class="skill-group-title">Finance & Trading</div>
-      <div class="skills-grid"><div class="skill-tag">Capital Markets</div><div class="skill-tag">Trading</div><div class="skill-tag">Algorithmic Trading</div><div class="skill-tag">Financial Analysis</div><div class="skill-tag">Financial Management</div></div>
-      <div class="skill-group-title">Leadership & Delivery</div>
-      <div class="skills-grid"><div class="skill-tag">Executive Leadership</div><div class="skill-tag">Team Management</div><div class="skill-tag">Lead Generation</div><div class="skill-tag">Reporting</div><div class="skill-tag">Research</div><div class="skill-tag">Data Management</div></div>
-    </section>
-    <section id="credentials">
-      <div class="section-tag">Credentials</div>
-      <h2>Education & Certifications</h2>
-      <div class="two-col">
-        <div>
-          <div class="edu-item"><div class="edu-school">Georgian College</div><div class="edu-degree">PGDM, Mobile Applications Development</div><div class="edu-period">2019</div></div>
-          <div class="edu-item"><div class="edu-school">Georgian College</div><div class="edu-degree">PGDM, Big Data Analytics</div><div class="edu-period">2018</div></div>
-          <div class="edu-item"><div class="edu-school">Maharaja Agrasen Institute of Technology, Delhi</div><div class="edu-degree">Bachelor's Degree, Electronics and Communications Engineering</div><div class="edu-period">2012 – 2016</div></div>
-        </div>
-        <div>
-          <div class="cert-item"><div class="cert-name">LangChain – Agentic AI Engineering with LangChain & LangGraph</div><div class="cert-provider">Udemy</div></div>
-          <div class="cert-item"><div class="cert-name">Prepare for the AWS Certified Cloud Practitioner Exam</div><div class="cert-provider">LinkedIn Learning</div></div>
-          <div class="cert-item"><div class="cert-name">SAS Programming Essentials</div><div class="cert-provider">SAS</div></div>
-          <div class="cert-item"><div class="cert-name">Introduction to Python for Data Sciences</div><div class="cert-provider">edX</div></div>
+      <div class="card">
+        <h3>Composable Architecture</h3>
+        <p class="muted">Systems should be modular, testable, and evolvable. Good architecture makes change safer as requirements develop.</p>
+      </div>
+      <div class="card">
+        <h3>Share Knowledge</h3>
+        <p class="muted">AI should not be a black box. I value clear decisions, usable documentation, mentoring, and practical learning.</p>
+      </div>
+    </div>
+
+    <div class="mentor-box">
+      <h3 style="margin-bottom: 12px;">Mentoring Community</h3>
+      <p class="muted">Beyond building systems, I spend time mentoring engineers and students exploring AI, helping them navigate concepts like RAG, agents, and evaluation, and supporting people making a transition into applied AI work. I enjoy simplifying complex ideas and helping others get unstuck, whether that's through a quick conversation, a code review, or a longer-term mentoring relationship.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section id="stack">
+  <div class="container">
+    <h2>Tech Stack</h2>
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>Languages</h3>
+        <div class="tech-list">
+          <span class="tech-tag">Python</span><span class="tech-tag">SQL</span><span class="tech-tag">JavaScript</span><span class="tech-tag">Java</span><span class="tech-tag">C++</span>
         </div>
       </div>
-    </section>
-    <section id="contact">
-      <div class="cta-band">
-        <h2>Ready to put AI to work in your business?</h2>
-        <p>Book a free 30-minute consultation to discuss your goals — whether it's a GenAI platform, a trading analytics tool, or automating a manual workflow.</p>
-        <div class="cta-buttons">
-          <a class="btn btn-primary" href="mailto:your-email@example.com?subject=AI%20Consulting%20Inquiry">Book a Free Consultation</a>
-          <a class="btn" href="https://www.linkedin.com/in/aishdeep-kharbanda-613104b2/" target="_blank" rel="noopener">Connect on LinkedIn</a>
-          <a class="btn" href="https://www.instagram.com/analytunb/" target="_blank" rel="noopener">Follow on Instagram</a>
+      <div class="card">
+        <h3>AI &amp; Agents</h3>
+        <div class="tech-list">
+          <span class="tech-tag">LangGraph</span><span class="tech-tag">CrewAI</span><span class="tech-tag">LangChain</span><span class="tech-tag">LlamaIndex</span><span class="tech-tag">Ollama</span><span class="tech-tag">Hugging Face</span>
         </div>
-        <p style="color:var(--muted); font-size:0.82rem; margin-top:18px;">Replace <code>your-email@example.com</code> with your real email so the button works.</p>
       </div>
-    </section>
-  </main>
-  <footer><div class="container">&copy; <span id="year"></span> Aishdeep Kharbanda — AI & Data Consulting. All rights reserved. · <a href="https://www.instagram.com/analytunb/" target="_blank" rel="noopener">Instagram @analytunb</a> · <a href="https://www.linkedin.com/in/aishdeep-kharbanda-613104b2/" target="_blank" rel="noopener">LinkedIn</a></div></footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+      <div class="card">
+        <h3>Knowledge &amp; Data</h3>
+        <div class="tech-list">
+          <span class="tech-tag">Neo4j</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Redis</span><span class="tech-tag">FAISS</span><span class="tech-tag">Spark</span><span class="tech-tag">Pandas</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Infrastructure</h3>
+        <div class="tech-list">
+          <span class="tech-tag">Docker</span><span class="tech-tag">Kubernetes</span><span class="tech-tag">AWS</span><span class="tech-tag">GCP</span><span class="tech-tag">Linux</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Application Layer</h3>
+        <div class="tech-list">
+          <span class="tech-tag">FastAPI</span><span class="tech-tag">Dramatiq</span><span class="tech-tag">Celery</span><span class="tech-tag">gRPC</span><span class="tech-tag">REST</span><span class="tech-tag">MCP</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Developer Tools</h3>
+        <div class="tech-list">
+          <span class="tech-tag">Git</span><span class="tech-tag">GitHub Actions</span><span class="tech-tag">Jupyter</span><span class="tech-tag">VS Code</span><span class="tech-tag">OpenTelemetry</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<footer>
+  <div class="container">
+    <div class="muted">Based in the Greater Toronto Area, Canada</div>
+    <div class="social-links">
+      <a href="https://github.com/aishdeep12" target="_blank" rel="noopener">GitHub</a>
+      <span style="color: var(--border);">|</span>
+      <a href="https://www.linkedin.com/in/aishdeep-kharbanda-613104b2" target="_blank" rel="noopener">LinkedIn</a>
+      <span style="color: var(--border);">|</span>
+      <a href="https://www.instagram.com/analytunb" target="_blank" rel="noopener">Instagram</a>
+      <span style="color: var(--border);">|</span>
+      <a href="https://aishdeep.substack.com/" target="_blank" rel="noopener">Substack</a>
+    </div>
+    <div class="muted" style="margin-top: 20px; font-size: 0.82rem;">Open to conversations about AI engineering, system architecture, research, and applied innovation</div>
+  </div>
+</footer>
+
+<script>
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  document.getElementById('themeIcon').innerHTML = theme === 'dark' ? '&#9728;' : '&#9789;';
+  document.getElementById('themeLabel').textContent = theme === 'dark' ? 'Light mode' : 'Dark mode';
+  localStorage.setItem('portfolio-theme', theme);
+}
+
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  applyTheme(current === 'dark' ? 'light' : 'dark');
+}
+
+(function initTheme() {
+  const saved = localStorage.getItem('portfolio-theme');
+  applyTheme(saved || 'dark');
+})();
+</script>
+
 </body>
 </html>
