@@ -101,6 +101,7 @@ h2::before {
   border-radius: 2px;
   display: inline-block;
 }
+h2 .h2-icon { font-size: 1.35rem; line-height: 1; }
 
 .muted { color: var(--muted); }
 
@@ -115,7 +116,16 @@ h2::before {
   background: var(--card);
   transition: background 0.3s ease, border-color 0.3s ease;
 }
-.card h3, .project-card h3 { font-size: 1.1rem; margin-bottom: 12px; font-weight: 600; color: var(--heading); }
+.card h3, .project-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: var(--heading);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.card h3 .card-icon, .project-card h3 .card-icon { font-size: 1.15rem; line-height: 1; }
 .card p, .project-card .desc { font-size: 0.93rem; line-height: 1.7; color: var(--muted); }
 .project-card .desc { margin-bottom: 12px; }
 .project-card a { font-weight: 500; }
@@ -182,6 +192,7 @@ footer { padding: 50px 0; font-size: 0.9rem; text-align: center; }
   margin-top: 10px;
   background: var(--card);
 }
+.mentor-box h3 { display: flex; align-items: center; gap: 8px; }
 
 .section-divider {
   border: none;
@@ -217,34 +228,34 @@ footer { padding: 50px 0; font-size: 0.9rem; text-align: center; }
 
 <section id="projects">
   <div class="container">
-    <h2>Featured Projects</h2>
+    <h2><span class="h2-icon">&#128193;</span>Featured Projects</h2>
     <div class="grid">
       <div class="project-card">
-        <h3>ReflexionAgents</h3>
+        <h3><span class="card-icon">&#128257;</span>ReflexionAgents</h3>
         <div class="desc muted">Exploring self-improving AI agents through reflexion architecture, iterative learning, and error correction.</div>
         <a href="https://github.com/aishdeep12/ReflexionAgents" target="_blank" rel="noopener">View on GitHub &rarr;</a>
         <span class="lang">Python</span>
       </div>
       <div class="project-card">
-        <h3>Ollama Agent</h3>
+        <h3><span class="card-icon">&#129433;</span>Ollama Agent</h3>
         <div class="desc muted">A lightweight agent system powered by local language models through Ollama, exploring privacy-conscious AI workflows.</div>
         <a href="https://github.com/aishdeep12/ollamaAgent" target="_blank" rel="noopener">View on GitHub &rarr;</a>
         <span class="lang">Jupyter Notebook</span>
       </div>
       <div class="project-card">
-        <h3>WhatsApp Agent</h3>
+        <h3><span class="card-icon">&#128172;</span>WhatsApp Agent</h3>
         <div class="desc muted">An LLM-powered conversational agent integrated with WhatsApp for real-time, intelligent messaging workflows.</div>
         <a href="https://github.com/aishdeep12/whatsappagent" target="_blank" rel="noopener">View on GitHub &rarr;</a>
         <span class="lang">Python</span>
       </div>
       <div class="project-card">
-        <h3>Hubble</h3>
+        <h3><span class="card-icon">&#128658;</span>Hubble</h3>
         <div class="desc muted">A marketplace mobile application connecting buyers and sellers with a focus on usability and clean interaction design.</div>
         <a href="https://github.com/aishdeep12/Hubble" target="_blank" rel="noopener">View on GitHub &rarr;</a>
         <span class="lang">Java</span>
       </div>
       <div class="project-card">
-        <h3>Eddufy</h3>
+        <h3><span class="card-icon">&#127891;</span>Eddufy</h3>
         <div class="desc muted">An educational mobile application built to support learning experiences through practical software design.</div>
         <a href="https://github.com/aishdeep12/Eddufy" target="_blank" rel="noopener">View on GitHub &rarr;</a>
         <span class="lang">Java</span>
@@ -261,66 +272,66 @@ footer { padding: 50px 0; font-size: 0.9rem; text-align: center; }
 
 <section id="expertise">
   <div class="container">
-    <h2>What I Build</h2>
+    <h2><span class="h2-icon">&#128736;&#65039;</span>What I Build</h2>
     <div class="grid">
       <div class="card">
-        <h3>Agentic AI Systems</h3>
+        <h3><span class="card-icon">&#129302;</span>Agentic AI Systems</h3>
         <p class="muted">Autonomous and collaborative agents with planning, tool use, memory, orchestration, and reflection loops.</p>
         <div class="tech-list">
           <span class="tech-tag">LangGraph</span><span class="tech-tag">CrewAI</span><span class="tech-tag">Reflexion</span><span class="tech-tag">Multi-Agent Systems</span><span class="tech-tag">Tool Calling</span><span class="tech-tag">Memory Context</span>
         </div>
       </div>
       <div class="card">
-        <h3>RAG Knowledge Systems</h3>
+        <h3><span class="card-icon">&#128269;</span>RAG Knowledge Systems</h3>
         <p class="muted">Production-oriented retrieval systems with semantic search, knowledge graphs, reranking, and intelligent chunking.</p>
         <div class="tech-list">
           <span class="tech-tag">Gemini Embedding 2</span><span class="tech-tag">FAISS</span><span class="tech-tag">Neo4j</span><span class="tech-tag">Graph RAG</span><span class="tech-tag">Semantic Splitting</span><span class="tech-tag">Reranking</span>
         </div>
       </div>
       <div class="card">
-        <h3>Document Intelligence</h3>
+        <h3><span class="card-icon">&#128196;</span>Document Intelligence</h3>
         <p class="muted">OCR and multimodal understanding workflows for extracting structured information from complex documents.</p>
         <div class="tech-list">
           <span class="tech-tag">Mistral OCR</span><span class="tech-tag">SmolDocling</span><span class="tech-tag">PyMuPDF</span><span class="tech-tag">VLMs</span><span class="tech-tag">Structured Extraction</span>
         </div>
       </div>
       <div class="card">
-        <h3>MCP Integrations</h3>
+        <h3><span class="card-icon">&#128268;</span>MCP Integrations</h3>
         <p class="muted">Model Context Protocol implementations, tool interfaces, and integrations that connect language models with real systems.</p>
         <div class="tech-list">
           <span class="tech-tag">MCP Servers</span><span class="tech-tag">FastAPI</span><span class="tech-tag">API Design</span><span class="tech-tag">Webhooks</span><span class="tech-tag">Event-Driven Systems</span>
         </div>
       </div>
       <div class="card">
-        <h3>LLM Evaluation Metrics</h3>
+        <h3><span class="card-icon">&#128202;</span>LLM Evaluation Metrics</h3>
         <p class="muted">Evaluation workflows and metrics for measuring quality, groundedness, latency, cost, safety, and system reliability.</p>
         <div class="tech-list">
           <span class="tech-tag">Evaluation Pipelines</span><span class="tech-tag">RAGAS</span><span class="tech-tag">Quality Metrics</span><span class="tech-tag">A/B Testing</span><span class="tech-tag">Human Feedback</span><span class="tech-tag">Observability</span>
         </div>
       </div>
       <div class="card">
-        <h3>Platform Engineering</h3>
+        <h3><span class="card-icon">&#127991;&#65039;</span>Platform Engineering</h3>
         <p class="muted">Scalable, observable AI infrastructure and deployment workflows built for dependable operation and change.</p>
         <div class="tech-list">
           <span class="tech-tag">Docker</span><span class="tech-tag">Kubernetes</span><span class="tech-tag">Async Processing</span><span class="tech-tag">CI/CD</span><span class="tech-tag">Cloud-Native</span>
         </div>
       </div>
       <div class="card">
-        <h3>Data Engineering</h3>
+        <h3><span class="card-icon">&#128452;&#65039;</span>Data Engineering</h3>
         <p class="muted">Robust data pipelines, data stores, and worker-based processing for AI workloads and applications.</p>
         <div class="tech-list">
           <span class="tech-tag">Python</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Redis</span><span class="tech-tag">Dramatiq</span><span class="tech-tag">Spark</span><span class="tech-tag">Pandas</span>
         </div>
       </div>
       <div class="card">
-        <h3>Open-Source Models</h3>
+        <h3><span class="card-icon">&#127760;</span>Open-Source Models</h3>
         <p class="muted">Working with open-source model ecosystems for fine-tuning, inference, and experimentation.</p>
         <div class="tech-list">
           <span class="tech-tag">Hugging Face</span><span class="tech-tag">Transformers</span><span class="tech-tag">Model Hub</span><span class="tech-tag">Fine-tuning</span><span class="tech-tag">Inference Endpoints</span>
         </div>
       </div>
       <div class="card">
-        <h3>Technical Writing</h3>
+        <h3><span class="card-icon">&#9997;&#65039;</span>Technical Writing</h3>
         <p class="muted">Writing that breaks down AI systems, agents, and RAG architecture into clear, practical explanations for engineers and builders.</p>
         <div class="tech-list">
           <span class="tech-tag">Substack</span><span class="tech-tag">System Design Deep-Dives</span><span class="tech-tag">Developer Education</span><span class="tech-tag">Documentation</span>
@@ -334,14 +345,14 @@ footer { padding: 50px 0; font-size: 0.9rem; text-align: center; }
 
 <section id="approach">
   <div class="container">
-    <h2>How I Work</h2>
+    <h2><span class="h2-icon">&#129517;</span>How I Work</h2>
     <p class="muted" style="margin-bottom: 25px; font-size: 1.02rem;">I bridge requirements with sound architecture and practical engineering. The goal is to create AI systems that are useful, measurable, secure, maintainable, observable, and ready to evolve.</p>
     <div class="approach-section">
       <ol class="muted">
-        <li><strong style="color: var(--heading);">Clarify</strong> &mdash; Understand the use case, users, data, constraints, risks, and measures of success</li>
-        <li><strong style="color: var(--heading);">Design</strong> &mdash; Architect a scalable system with the appropriate models, data flows, interfaces, and operational patterns</li>
-        <li><strong style="color: var(--heading);">Implement</strong> &mdash; Build, integrate, evaluate, and iteratively improve the solution through practical engineering</li>
-        <li><strong style="color: var(--heading);">Document</strong> &mdash; Capture decisions and make concepts accessible through mentoring and education</li>
+        <li><strong style="color: var(--heading);">&#129513; Clarify</strong> &mdash; Understand the use case, users, data, constraints, risks, and measures of success</li>
+        <li><strong style="color: var(--heading);">&#128207; Design</strong> &mdash; Architect a scalable system with the appropriate models, data flows, interfaces, and operational patterns</li>
+        <li><strong style="color: var(--heading);">&#128295; Implement</strong> &mdash; Build, integrate, evaluate, and iteratively improve the solution through practical engineering</li>
+        <li><strong style="color: var(--heading);">&#128221; Document</strong> &mdash; Capture decisions and make concepts accessible through mentoring and education</li>
       </ol>
     </div>
   </div>
@@ -351,28 +362,28 @@ footer { padding: 50px 0; font-size: 0.9rem; text-align: center; }
 
 <section id="philosophy">
   <div class="container">
-    <h2>Philosophy</h2>
+    <h2><span class="h2-icon">&#128161;</span>Philosophy</h2>
     <div class="grid">
       <div class="card">
-        <h3>Production First</h3>
+        <h3><span class="card-icon">&#128640;</span>Production First</h3>
         <p class="muted">I focus on systems that work reliably in production, not just demos. Observability, error handling, and scalability are part of the design.</p>
       </div>
       <div class="card">
-        <h3>Measure Everything</h3>
+        <h3><span class="card-icon">&#128207;</span>Measure Everything</h3>
         <p class="muted">Evaluation belongs in the system from the beginning. Quality, latency, cost, safety, and user feedback guide improvement.</p>
       </div>
       <div class="card">
-        <h3>Composable Architecture</h3>
+        <h3><span class="card-icon">&#129513;</span>Composable Architecture</h3>
         <p class="muted">Systems should be modular, testable, and evolvable. Good architecture makes change safer as requirements develop.</p>
       </div>
       <div class="card">
-        <h3>Share Knowledge</h3>
+        <h3><span class="card-icon">&#129309;</span>Share Knowledge</h3>
         <p class="muted">AI should not be a black box. I value clear decisions, usable documentation, mentoring, and practical learning.</p>
       </div>
     </div>
 
     <div class="mentor-box">
-      <h3 style="margin-bottom: 12px;">Mentoring Community</h3>
+      <h3 style="margin-bottom: 12px;"><span class="card-icon">&#127891;</span>Mentoring Community</h3>
       <p class="muted">Beyond building systems, I spend time mentoring engineers and students exploring AI, helping them navigate concepts like RAG, agents, and evaluation, and supporting people making a transition into applied AI work. I enjoy simplifying complex ideas and helping others get unstuck, whether that's through a quick conversation, a code review, or a longer-term mentoring relationship.</p>
     </div>
   </div>
@@ -382,40 +393,40 @@ footer { padding: 50px 0; font-size: 0.9rem; text-align: center; }
 
 <section id="stack">
   <div class="container">
-    <h2>Tech Stack</h2>
+    <h2><span class="h2-icon">&#9881;&#65039;</span>Tech Stack</h2>
     <div class="grid grid-3">
       <div class="card">
-        <h3>Languages</h3>
+        <h3><span class="card-icon">&#128483;&#65039;</span>Languages</h3>
         <div class="tech-list">
           <span class="tech-tag">Python</span><span class="tech-tag">SQL</span><span class="tech-tag">JavaScript</span><span class="tech-tag">Java</span><span class="tech-tag">C++</span>
         </div>
       </div>
       <div class="card">
-        <h3>AI &amp; Agents</h3>
+        <h3><span class="card-icon">&#129504;</span>AI &amp; Agents</h3>
         <div class="tech-list">
           <span class="tech-tag">LangGraph</span><span class="tech-tag">CrewAI</span><span class="tech-tag">LangChain</span><span class="tech-tag">LlamaIndex</span><span class="tech-tag">Ollama</span><span class="tech-tag">Hugging Face</span>
         </div>
       </div>
       <div class="card">
-        <h3>Knowledge &amp; Data</h3>
+        <h3><span class="card-icon">&#128451;&#65039;</span>Knowledge &amp; Data</h3>
         <div class="tech-list">
           <span class="tech-tag">Neo4j</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Redis</span><span class="tech-tag">FAISS</span><span class="tech-tag">Spark</span><span class="tech-tag">Pandas</span>
         </div>
       </div>
       <div class="card">
-        <h3>Infrastructure</h3>
+        <h3><span class="card-icon">&#128421;&#65039;</span>Infrastructure</h3>
         <div class="tech-list">
           <span class="tech-tag">Docker</span><span class="tech-tag">Kubernetes</span><span class="tech-tag">AWS</span><span class="tech-tag">GCP</span><span class="tech-tag">Linux</span>
         </div>
       </div>
       <div class="card">
-        <h3>Application Layer</h3>
+        <h3><span class="card-icon">&#128230;</span>Application Layer</h3>
         <div class="tech-list">
           <span class="tech-tag">FastAPI</span><span class="tech-tag">Dramatiq</span><span class="tech-tag">Celery</span><span class="tech-tag">gRPC</span><span class="tech-tag">REST</span><span class="tech-tag">MCP</span>
         </div>
       </div>
       <div class="card">
-        <h3>Developer Tools</h3>
+        <h3><span class="card-icon">&#128295;</span>Developer Tools</h3>
         <div class="tech-list">
           <span class="tech-tag">Git</span><span class="tech-tag">GitHub Actions</span><span class="tech-tag">Jupyter</span><span class="tech-tag">VS Code</span><span class="tech-tag">OpenTelemetry</span>
         </div>
