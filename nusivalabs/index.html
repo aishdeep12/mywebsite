@@ -230,7 +230,7 @@ button { font: inherit; }
 .about { padding-top: 96px; padding-bottom: 96px; }
 .about-inner { display: flex; flex-wrap: wrap; gap: 48px 64px; align-items: center; }
 .portrait { position: relative; flex: 0 1 270px; min-width: 0; max-width: min(270px, 62vw); }
-.portrait::before { content: ""; position: absolute; inset: 0; border-radius: 20px; border: 2px solid var(--teal-bright); transform: translate(14px, 14px); }
+.portrait::before { content: ""; position: absolute; inset: -10px; border-radius: 28px; border: 2px solid var(--teal-bright); }
 .portrait img { position: relative; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 20px; }
 .about-copy { flex: 999 1 460px; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
 .about h2 { font-weight: 700; font-size: clamp(28px, 3.8vw, 42px); line-height: 1.1; letter-spacing: -0.03em; }
@@ -272,6 +272,7 @@ footer { border-top: 1px solid var(--line); padding-top: 28px; padding-bottom: 3
   .feed li { padding: 22px; }
   .series-row { grid-template-columns: minmax(0, 1fr) 24px; padding: 18px; }
   .series-row .tag { grid-column: 1 / -1; }
+  .portrait { margin-left: auto; margin-right: auto; }
   .steps::before { left: 38px; }
   .steps li { padding: 18px; gap: 16px; }
   .closing { padding-bottom: 64px; }
