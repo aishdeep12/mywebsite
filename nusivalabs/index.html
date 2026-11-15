@@ -190,8 +190,15 @@ footer { border-top: 1px solid var(--line); padding-top: 28px; padding-bottom: 3
   .closing { padding-bottom: 64px; }
 }
 @media (max-width: 420px) {
-  .wordmark { font-size: 19px; }
-  .nav .btn { padding: 9px 12px; font-size: 14px; }
+  .wrap { padding-left: 16px; padding-right: 16px; }
+  .header-inner { gap: 10px; }
+  .logo { gap: 8px; }
+  .logo svg { width: 32px; height: 32px; }
+  .wordmark { font-size: 18px; }
+  .nav .btn { padding: 9px 11px; font-size: 13px; }
+}
+@media (max-width: 340px) {
+  .nav .btn { padding: 8px 9px; font-size: 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
