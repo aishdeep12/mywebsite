@@ -5,470 +5,609 @@
 <title>Aishdeep Kharbanda | GenAI Engineer</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Lead GenAI Engineer specializing in agentic systems, RAG, document intelligence, and production AI platforms">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<script>
+(function () {
+  var t = 'dark';
+  try { t = localStorage.getItem('portfolio-theme') || 'dark'; } catch (e) {}
+  document.documentElement.setAttribute('data-theme', t);
+  document.documentElement.classList.add('js');
+})();
+</script>
 <style>
 :root {
-  --accent: #7c5cff;
-  --accent-soft: rgba(124, 92, 255, 0.14);
+  /* Same violet-on-warm-paper palette as before, light and dark.
+     Layout: one column of sections, each with a single interactive piece. */
+  --accent: #6a48f0;
+  --accent-soft: rgba(124, 92, 255, 0.12);
+  --on-accent: #ffffff;
   --bg: #fdfaf6;
   --card: #ffffff;
+  --raised: #f6f1fb;
   --text: #2f2a3a;
-  --muted: #6b6478;
+  --muted: #645d72;
   --heading: #1c1626;
-  --border: #ece3f5;
+  --border: #e8dff2;
+  --shadow: 0 18px 40px -28px rgba(60, 40, 120, 0.45);
+  --font: "Schibsted Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  color-scheme: light;
 }
-
 html[data-theme="dark"] {
   --accent: #b6a4ff;
+  --accent-soft: rgba(182, 164, 255, 0.14);
+  --on-accent: #17131f;
   --bg: #17131f;
-  --card: #221c2e;
+  --card: #201a2b;
+  --raised: #2a2238;
   --text: #e6e0f0;
-  --muted: #a89bbf;
+  --muted: #ab9fc0;
   --heading: #f5f0ff;
   --border: #362c46;
-  --accent-soft: rgba(182, 164, 255, 0.16);
+  --shadow: 0 18px 40px -26px rgba(0, 0, 0, 0.8);
+  color-scheme: dark;
 }
-
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  line-height: 1.7;
-  background: var(--bg);
-  color: var(--text);
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-a { text-decoration: none; color: var(--accent); }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+body { font-family: var(--font); font-size: 17px; line-height: 1.65; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; transition: background 0.3s ease, color 0.3s ease; }
+a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
-
-.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-
-.theme-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 8px 16px;
-  cursor: pointer;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--text);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  transition: background 0.3s ease, border-color 0.3s ease;
-}
-.theme-toggle:hover { border-color: var(--accent); }
-.theme-toggle .icon { font-size: 1rem; line-height: 1; }
-
-header {
-  padding: 80px 0 50px;
-  position: relative;
-  text-align: left;
-}
-.profile-photo {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 3px solid var(--accent);
-  box-shadow: 0 8px 20px var(--accent-soft);
-  margin-bottom: 25px;
-  object-fit: cover;
-}
-h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.5px; color: var(--heading); }
-.subtitle { font-size: 1.15rem; margin-bottom: 20px; font-weight: 500; color: var(--accent); }
-.intro { font-size: 1.05rem; max-width: 750px; line-height: 1.8; }
-
-section { padding: 60px 0; }
-
-h2 {
-  font-size: 1.6rem;
-  margin-bottom: 30px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--heading);
-}
-h2::before {
-  content: "";
-  width: 4px;
-  height: 28px;
-  background: var(--accent);
-  border-radius: 2px;
-  display: inline-block;
-}
-h2 .h2-icon { font-size: 1.35rem; line-height: 1; }
-
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 8px; }
+button { font: inherit; color: inherit; }
+img { max-width: 100%; display: block; }
+h1, h2, h3 { color: var(--heading); text-wrap: balance; }
+.container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 .muted { color: var(--muted); }
+.ic { width: 20px; height: 20px; flex: none; }
 
-.grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-@media (min-width: 650px) { .grid { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 900px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+/* Top bar */
+.topbar { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+.topbar-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.05rem; color: var(--heading); letter-spacing: -0.01em; }
+.brand:hover { text-decoration: none; }
+.brand-mark { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: var(--accent); color: var(--on-accent); font-size: 0.85rem; font-weight: 700; }
+.nav { display: flex; align-items: center; gap: 4px; }
+.nav a { position: relative; color: var(--muted); font-size: 0.93rem; font-weight: 500; padding: 8px 12px; border-radius: 8px; }
+.nav a:hover { color: var(--heading); text-decoration: none; }
+.nav a[aria-current="true"] { color: var(--heading); background: var(--accent-soft); }
+.tools { display: flex; align-items: center; gap: 8px; }
+.icon-btn { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--border); background: var(--card); cursor: pointer; transition: border-color 0.2s; }
+.icon-btn:hover { border-color: var(--accent); }
+#menuBtn { display: none; }
+.progress { position: absolute; left: 0; bottom: -1px; width: 100%; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; }
 
-.card, .project-card {
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 26px;
-  background: var(--card);
-  transition: background 0.3s ease, border-color 0.3s ease;
-}
-.card h3, .project-card h3 {
-  font-size: 1.1rem;
-  margin-bottom: 12px;
-  font-weight: 600;
-  color: var(--heading);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.card h3 .card-icon, .project-card h3 .card-icon { font-size: 1.15rem; line-height: 1; }
-.card p, .project-card .desc { font-size: 0.93rem; line-height: 1.7; color: var(--muted); }
-.project-card .desc { margin-bottom: 12px; }
-.project-card a { font-weight: 500; }
-.project-card .lang {
-  display: inline-block;
-  font-size: 0.75rem;
-  padding: 3px 9px;
-  border-radius: 4px;
-  margin-top: 8px;
-  background: var(--bg);
-  color: var(--muted);
-}
+/* Hero */
+.hero { position: relative; overflow: hidden; padding: 72px 0 64px; }
+.hero::before { content: ""; position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(circle at 1px 1px, var(--border) 1px, transparent 0); background-size: 28px 28px; -webkit-mask-image: radial-gradient(ellipse 60% 90% at 85% 30%, #000, transparent 70%); mask-image: radial-gradient(ellipse 60% 90% at 85% 30%, #000, transparent 70%); }
+.hero::after { content: ""; position: absolute; right: -140px; top: -160px; width: 520px; height: 520px; border-radius: 50%; pointer-events: none; background: radial-gradient(circle, var(--accent-soft), transparent 65%); }
+.hero-in { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 56px; align-items: center; }
+.status { display: inline-flex; align-items: center; gap: 8px; font-size: 0.86rem; font-weight: 500; color: var(--muted); border: 1px solid var(--border); background: var(--card); border-radius: 999px; padding: 6px 14px; margin-bottom: 22px; }
+.status i { width: 8px; height: 8px; border-radius: 50%; background: #2fbf71; box-shadow: 0 0 0 4px rgba(47, 191, 113, 0.18); }
+h1 { font-size: clamp(2.3rem, 5.4vw, 3.7rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.035em; margin-bottom: 14px; }
+.subtitle { font-size: clamp(1.1rem, 2vw, 1.3rem); font-weight: 600; color: var(--accent); margin-bottom: 18px; min-height: 1.65em; }
+.subtitle .caret { display: inline-block; width: 2px; height: 1.05em; margin-left: 3px; vertical-align: -0.15em; background: var(--accent); animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.intro { font-size: 1.06rem; max-width: 40em; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 0.96rem; padding: 12px 20px; border-radius: 12px; border: 1.5px solid transparent; transition: transform 0.18s var(--ease), border-color 0.18s, background 0.18s; }
+.btn:hover { text-decoration: none; transform: translateY(-2px); }
+.btn-primary { background: var(--accent); color: var(--on-accent); }
+.btn-ghost { border-color: var(--border); color: var(--heading); background: var(--card); }
+.btn-ghost:hover { border-color: var(--accent); }
+.portrait { position: relative; justify-self: center; width: min(300px, 70vw); }
+.portrait::before { content: ""; position: absolute; inset: -10px; border-radius: 30px; border: 2px solid var(--accent); opacity: 0.55; }
+.portrait img { position: relative; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 22px; box-shadow: var(--shadow); }
+.stats-grid { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 56px; border: 1px solid var(--border); border-radius: 16px; background: var(--card); overflow: hidden; }
+.stat-card { padding: 22px 24px; border-left: 1px solid var(--border); }
+.stat-card:first-child { border-left: 0; }
+.stat-number { display: block; font-size: 2.1rem; font-weight: 700; line-height: 1.1; color: var(--accent); font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+.stat-label { font-size: 0.9rem; color: var(--muted); }
 
+/* Sections */
+section { padding: 84px 0; border-top: 1px solid var(--border); }
+.sec-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 24px; margin-bottom: 34px; }
+h2 { font-size: clamp(1.7rem, 3.4vw, 2.3rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; }
+.sec-head p { max-width: 38em; margin-top: 10px; }
+h3 { font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.card { position: relative; border: 1px solid var(--border); border-radius: 16px; padding: 24px; background: var(--card); transition: border-color 0.2s, transform 0.2s var(--ease), box-shadow 0.2s, background 0.3s; }
+.card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: var(--shadow); }
+.card h3 { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.card p { font-size: 0.96rem; color: var(--muted); }
+.card-ic { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); flex: none; }
 .tech-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
-.tech-tag {
-  border-radius: 6px;
-  padding: 5px 11px;
-  font-size: 0.78rem;
-  font-weight: 500;
-  background: var(--accent-soft);
-  border: 1px solid var(--accent-soft);
-  color: var(--accent);
+.tech-tag { font-size: 0.8rem; font-weight: 500; padding: 5px 11px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+
+/* Projects */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { border: 1px solid var(--border); background: var(--card); border-radius: 999px; padding: 7px 15px; font-size: 0.88rem; font-weight: 500; color: var(--muted); cursor: pointer; transition: 0.15s; }
+.chip:hover { border-color: var(--accent); color: var(--heading); }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.project-card { display: flex; flex-direction: column; }
+.project-card[hidden] { display: none; }
+.project-card .desc { flex: 1; margin-bottom: 16px; }
+.project-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.project-foot a { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; font-size: 0.93rem; }
+.project-foot a::after { content: ""; position: absolute; inset: 0; border-radius: 16px; }
+.project-foot a .ic { width: 16px; height: 16px; transition: transform 0.2s var(--ease); }
+.project-card:hover .project-foot a .ic { transform: translateX(4px); }
+.lang { font-family: var(--mono); font-size: 0.76rem; padding: 3px 9px; border-radius: 6px; background: var(--raised); color: var(--muted); }
+.highlight-box { border-radius: 14px; padding: 18px 22px; margin-top: 22px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.97rem; }
+
+/* What I build: list + detail */
+.build { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 18px; align-items: start; }
+.build-list { display: flex; flex-direction: column; gap: 6px; }
+.build-tab { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; padding: 12px 14px; border-radius: 12px; border: 1px solid transparent; background: none; cursor: pointer; font-weight: 500; font-size: 0.97rem; color: var(--muted); transition: 0.15s; }
+.build-tab:hover { background: var(--raised); color: var(--heading); }
+.build-tab[aria-selected="true"] { background: var(--card); border-color: var(--accent); color: var(--heading); box-shadow: var(--shadow); }
+.build-tab[aria-selected="true"] .card-ic { background: var(--accent); color: var(--on-accent); }
+.build-tab .card-ic { width: 34px; height: 34px; transition: 0.15s; }
+.build-panel { border: 1px solid var(--border); border-radius: 18px; background: var(--card); padding: 34px; min-height: 280px; }
+.build-panel h3 { font-size: 1.5rem; letter-spacing: -0.02em; margin-bottom: 12px; }
+.build-panel p { font-size: 1.05rem; color: var(--muted); max-width: 36em; }
+.build-panel .tech-list { margin-top: 22px; }
+.build-panel .tech-tag { font-size: 0.88rem; padding: 7px 14px; }
+.js .build-panel[hidden] { display: none; }
+.build-panel.swap { animation: swap 0.3s var(--ease); }
+@keyframes swap { from { opacity: 0.3; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+/* Experience */
+.timeline { position: relative; display: flex; flex-direction: column; gap: 14px; padding-left: 30px; }
+.timeline::before { content: ""; position: absolute; left: 7px; top: 10px; bottom: 10px; width: 2px; background: linear-gradient(var(--accent), var(--border)); }
+.job { position: relative; border: 1px solid var(--border); border-radius: 16px; background: var(--card); transition: border-color 0.2s; }
+.job::before { content: ""; position: absolute; left: -30px; top: 24px; width: 16px; height: 16px; border-radius: 50%; background: var(--bg); border: 3px solid var(--accent); }
+.job[open], .job:hover { border-color: var(--accent); }
+.job summary { list-style: none; display: grid; grid-template-columns: minmax(0, 1fr) auto 20px; gap: 4px 18px; align-items: center; padding: 18px 22px; cursor: pointer; }
+.job summary::-webkit-details-marker { display: none; }
+.job-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 18px; align-items: center; padding: 18px 22px; }
+.job-row .job-when { grid-column: 2; }
+.job-role { font-weight: 600; color: var(--heading); font-size: 1.05rem; }
+.job-org { color: var(--muted); font-size: 0.95rem; grid-column: 1; }
+.job-when { font-family: var(--mono); font-size: 0.82rem; color: var(--muted); grid-row: 1 / span 2; grid-column: 2; white-space: nowrap; }
+.job summary .ic { grid-row: 1 / span 2; grid-column: 3; color: var(--muted); transition: transform 0.25s var(--ease); }
+.job[open] summary .ic { transform: rotate(180deg); color: var(--accent); }
+.job-body { padding: 0 22px 20px; }
+.job-body p { color: var(--muted); font-size: 0.97rem; max-width: 46em; }
+.edu { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 26px; }
+.edu .card p { font-size: 0.92rem; }
+
+/* How I work */
+.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border: 1px solid var(--border); border-radius: 18px; background: var(--card); overflow: hidden; counter-reset: step; }
+.step { position: relative; padding: 26px 24px 28px; border-left: 1px solid var(--border); transition: background 0.2s; }
+.step:first-child { border-left: 0; }
+.step:hover { background: var(--raised); }
+.step::before { counter-increment: step; content: "0" counter(step); display: block; font-family: var(--mono); font-size: 0.85rem; color: var(--accent); margin-bottom: 14px; }
+.step h3 { margin-bottom: 8px; font-size: 1.2rem; }
+.step p { font-size: 0.94rem; color: var(--muted); }
+.step::after { content: ""; position: absolute; left: 0; top: 0; height: 3px; width: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.35s var(--ease); }
+.step:hover::after { transform: scaleX(1); }
+
+.mentor-box { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 20px; border: 1px solid var(--border); border-radius: 18px; padding: 28px; margin-top: 18px; background: var(--card); }
+.mentor-box .card-ic { width: 48px; height: 48px; border-radius: 14px; }
+.mentor-box h3 { margin-bottom: 8px; font-size: 1.2rem; }
+
+/* Nusiva callout */
+.callout { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; border-radius: 20px; padding: clamp(26px, 4vw, 40px); background: var(--accent); color: var(--on-accent); }
+.callout h2 { color: var(--on-accent); font-size: clamp(1.4rem, 3vw, 1.9rem); margin-bottom: 6px; }
+.callout p { max-width: 36em; opacity: 0.9; }
+.callout .btn { background: var(--on-accent); color: var(--accent); }
+
+footer { border-top: 1px solid var(--border); padding: 56px 0 44px; }
+.foot { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 24px; }
+.foot h2 { font-size: 1.5rem; margin-bottom: 8px; }
+.social-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.social-links a { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 0.93rem; color: var(--heading); border: 1px solid var(--border); background: var(--card); border-radius: 12px; padding: 10px 16px; transition: 0.18s; }
+.social-links a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; transform: translateY(-2px); }
+.legal { margin-top: 34px; font-size: 0.85rem; color: var(--muted); }
+.to-top { position: fixed; right: 18px; bottom: 18px; z-index: 40; opacity: 0; pointer-events: none; transform: translateY(8px); transition: 0.2s; box-shadow: var(--shadow); }
+.to-top.on { opacity: 1; pointer-events: auto; transform: none; }
+
+.js .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease), border-color 0.2s, box-shadow 0.2s, background 0.3s; }
+.js .reveal.in { opacity: 1; transform: none; }
+
+@media (max-width: 900px) {
+  #menuBtn { display: grid; }
+  .nav { display: none; position: absolute; left: 0; right: 0; top: 100%; flex-direction: column; align-items: stretch; gap: 2px; padding: 10px 20px 18px; background: var(--bg); border-bottom: 1px solid var(--border); }
+  .nav.open { display: flex; }
+  .nav a { padding: 12px; font-size: 1rem; }
+  .hero { padding: 44px 0 48px; }
+  .hero-in { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .portrait { order: -1; justify-self: start; width: 150px; }
+  .portrait::before { inset: -7px; border-radius: 26px; }
+  section { padding: 60px 0; }
+  .grid-3, .edu { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .build { grid-template-columns: minmax(0, 1fr); }
+  .build-list { flex-direction: row; overflow-x: auto; padding-bottom: 6px; scrollbar-width: none; }
+  .build-list::-webkit-scrollbar { display: none; }
+  .build-tab { width: auto; flex: none; border-color: var(--border); background: var(--card); padding: 8px 14px 8px 8px; border-radius: 999px; font-size: 0.9rem; white-space: nowrap; }
+  .build-tab .card-ic { width: 28px; height: 28px; border-radius: 50%; }
+  .build-tab .card-ic .ic { width: 15px; height: 15px; }
+  .build-panel { padding: 24px; min-height: 0; }
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .step:nth-child(3) { border-left: 0; }
+  .step:nth-child(n+3) { border-top: 1px solid var(--border); }
 }
-
-.approach-section {
-  border: 1px solid var(--border);
-  padding: 35px;
-  border-radius: 14px;
-  margin-top: 25px;
-  background: var(--card);
+@media (max-width: 600px) {
+  .container { padding: 0 16px; }
+  .grid, .grid-3, .edu { grid-template-columns: minmax(0, 1fr); }
+  .stats-grid { margin-top: 40px; }
+  .stat-card { padding: 16px 12px; text-align: center; }
+  .stat-number { font-size: 1.6rem; }
+  .stat-label { font-size: 0.78rem; }
+  .job summary { grid-template-columns: minmax(0, 1fr) 20px; padding: 16px 18px; }
+  .job-when { grid-row: auto; grid-column: 1; }
+  .job-row { grid-template-columns: minmax(0, 1fr); padding: 16px 18px; }
+  .job-row .job-when { grid-column: 1; grid-row: auto; }
+  .job summary .ic { grid-row: 1 / span 3; grid-column: 2; }
+  .job-body { padding: 0 18px 18px; }
+  .steps { grid-template-columns: minmax(0, 1fr); }
+  .step { border-left: 0; }
+  .step:nth-child(n+2) { border-top: 1px solid var(--border); }
+  .mentor-box { grid-template-columns: minmax(0, 1fr); padding: 22px; }
 }
-.approach-section ol { padding-left: 22px; }
-.approach-section li { margin-bottom: 10px; line-height: 1.7; }
-
-.stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 20px; }
-@media (min-width: 650px) { .stats-grid { grid-template-columns: repeat(3, 1fr); } }
-.stat-card {
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 20px;
-  text-align: center;
-  background: var(--card);
-}
-.stat-number { font-size: 2rem; font-weight: 700; color: var(--accent); display: block; margin-bottom: 5px; }
-.stat-label { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px; }
-
-footer { padding: 50px 0; font-size: 0.9rem; text-align: center; }
-.social-links { margin-top: 15px; }
-.social-links a { margin: 0 10px; font-weight: 500; }
-
-.highlight-box {
-  border-radius: 0 10px 10px 0;
-  padding: 20px 24px;
-  margin: 25px 0;
-  background: var(--accent-soft);
-  border-left: 3px solid var(--accent);
-}
-.highlight-box p { font-size: 0.95rem; }
-
-.mentor-box {
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 30px;
-  margin-top: 10px;
-  background: var(--card);
-}
-.mentor-box h3 { display: flex; align-items: center; gap: 8px; }
-
-.section-divider {
-  border: none;
-  height: 1px;
-  background: var(--border);
-  max-width: 1000px;
-  margin: 0 auto;
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .js .reveal { opacity: 1; transform: none; }
 }
 </style>
 </head>
 <body>
 
-<div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
-  <span class="icon" id="themeIcon">&#9728;</span>
-  <span id="themeLabel">Light mode</span>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <g id="i-bot" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 8V4M9 13v1M15 13v1M2 13v2M22 13v2"/></g>
+  <g id="i-search" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.500"/><path d="m20 20-4-4"/></g>
+  <g id="i-doc" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></g>
+  <g id="i-plug" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v5M15 3v5M6 8h12v3a6 6 0 0 1-12 0V8ZM12 17v4"/></g>
+  <g id="i-chart" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V4M4 20h16M8 16v-5M12 16V8M16 16v-3"/></g>
+  <g id="i-server" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="7" rx="2"/><rect x="4" y="13" width="16" height="7" rx="2"/><path d="M8 7.500h.01M8 16.500h.01"/></g>
+  <g id="i-db" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.700 3.100 3 7 3s7-1.300 7-3V6M5 12c0 1.700 3.100 3 7 3s7-1.300 7-3"/></g>
+  <g id="i-globe" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.500 3 14.500 0 18M12 3c-3 3.500-3 14.500 0 18"/></g>
+  <g id="i-pen" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1L19 8l-3-3L5 16l-1 4ZM14 7l3 3"/></g>
+  <g id="i-rocket" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15c-1-1-2-2-3-3 1-5 4-8 10-9-1 6-4 9-9 10l2 2ZM9 12l-4 1 2-4M12 15l-1 4 4-2M15 9h.01"/></g>
+  <g id="i-ruler" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16 16 4l4 4L8 20l-4-4ZM8 12l2 2M11 9l2 2M14 6l2 2"/></g>
+  <g id="i-blocks" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.500"/><rect x="13" y="4" width="7" height="7" rx="1.500"/><rect x="4" y="13" width="7" height="7" rx="1.500"/><rect x="13" y="13" width="7" height="7" rx="1.500"/></g>
+  <g id="i-users" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.500"/><path d="M2.500 20c.8-3.500 3.300-5 6.500-5s5.700 1.500 6.500 5M16 5a3.500 3.500 0 0 1 0 6.500M18.500 15.500c1.600.700 2.600 2.200 3 4.500"/></g>
+  <g id="i-cap" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5L2 9ZM6 11.500V16c2 2 10 2 12 0v-4.500M22 9v6"/></g>
+  <g id="i-code" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></g>
+  <g id="i-layers" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5 9-5ZM3 13l9 5 9-5"/></g>
+  <g id="i-tool" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6a4 4 0 0 0 5 5l-9 9a2.100 2.100 0 0 1-3-3l9-9a4 4 0 0 0-2-2Z"/></g>
+  <g id="i-arrow" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></g>
+  <g id="i-chev" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></g>
+  <g id="i-menu" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></g>
+  <g id="i-sun" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.900 4.900l1.400 1.400M17.700 17.700l1.400 1.400M2 12h2M20 12h2M4.900 19.100l1.400-1.400M17.700 6.300l1.400-1.400"/></g>
+  <g id="i-moon" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.500A8 8 0 0 1 9.500 4a8 8 0 1 0 10.500 10.500Z"/></g>
+</defs></svg>
+
+<div class="topbar">
+  <div class="container topbar-in">
+    <a class="brand" href="#top"><span class="brand-mark">AK</span>Aishdeep Kharbanda</a>
+    <nav class="nav" id="nav" aria-label="Sections">
+      <a href="#projects">Projects</a>
+      <a href="#expertise">What I build</a>
+      <a href="#experience">Experience</a>
+      <a href="#approach">How I work</a>
+      <a href="#stack">Tech stack</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="tools">
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch to light mode"><svg class="ic" viewBox="0 0 24 24"><use id="themeIcon" href="#i-sun"/></svg></button>
+      <button class="icon-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav"><svg class="ic" viewBox="0 0 24 24"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+  <div class="progress" id="progress"></div>
 </div>
 
-<header>
+<header class="hero" id="top">
   <div class="container">
-    <img src="profile.jpg" alt="Aishdeep Kharbanda" class="profile-photo">
-    <h1>Aishdeep Kharbanda</h1>
-    <div class="subtitle">Lead GenAI Engineer Building Intelligent Systems</div>
-    <p class="intro muted">I specialize in generative AI, agentic workflows, document intelligence, retrieval-augmented generation, and production AI platforms. My work spans the full lifecycle from understanding requirements and architecting systems to building, evaluating, deploying, and continuously improving reliable AI solutions that work in production.</p>
+    <div class="hero-in">
+      <div>
+        <span class="status"><i></i>Open to conversations about AI engineering</span>
+        <h1>Aishdeep Kharbanda</h1>
+        <div class="subtitle"><span id="typed">Lead GenAI Engineer Building Intelligent Systems</span></div>
+        <p class="intro muted">I specialize in generative AI, agentic workflows, document intelligence, retrieval-augmented generation, and production AI platforms. My work spans the full lifecycle from understanding requirements and architecting systems to building, evaluating, deploying, and continuously improving reliable AI solutions that work in production.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#projects">See my projects <svg class="ic" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-ghost" href="https://github.com/aishdeep12" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/aishdeep-kharbanda-613104b2" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <div class="portrait"><img src="profile.jpg" alt="Aishdeep Kharbanda" width="800" height="800"></div>
+    </div>
     <div class="stats-grid">
-      <div class="stat-card"><span class="stat-number">22+</span><span class="stat-label muted">Public Repos</span></div>
-      <div class="stat-card"><span class="stat-number">7+</span><span class="stat-label muted">AI Agent Projects</span></div>
-      <div class="stat-card"><span class="stat-number">8+</span><span class="stat-label muted">Years Coding</span></div>
+      <div class="stat-card"><span class="stat-number" data-count="22">22+</span><span class="stat-label">Public repos</span></div>
+      <div class="stat-card"><span class="stat-number" data-count="7">7+</span><span class="stat-label">AI agent projects</span></div>
+      <div class="stat-card"><span class="stat-number" data-count="8">8+</span><span class="stat-label">Years coding</span></div>
     </div>
   </div>
 </header>
 
-<hr class="section-divider">
-
 <section id="projects">
   <div class="container">
-    <h2><span class="h2-icon">&#128193;</span>Featured Projects</h2>
-    <div class="grid">
-      <div class="project-card">
-        <h3><span class="card-icon">&#128257;</span>ReflexionAgents</h3>
-        <div class="desc muted">Exploring self-improving AI agents through reflexion architecture, iterative learning, and error correction.</div>
-        <a href="https://github.com/aishdeep12/ReflexionAgents" target="_blank" rel="noopener">View on GitHub &rarr;</a>
-        <span class="lang">Python</span>
-      </div>
-      <div class="project-card">
-        <h3><span class="card-icon">&#129433;</span>Ollama Agent</h3>
-        <div class="desc muted">A lightweight agent system powered by local language models through Ollama, exploring privacy-conscious AI workflows.</div>
-        <a href="https://github.com/aishdeep12/ollamaAgent" target="_blank" rel="noopener">View on GitHub &rarr;</a>
-        <span class="lang">Jupyter Notebook</span>
-      </div>
-      <div class="project-card">
-        <h3><span class="card-icon">&#128172;</span>WhatsApp Agent</h3>
-        <div class="desc muted">An LLM-powered conversational agent integrated with WhatsApp for real-time, intelligent messaging workflows.</div>
-        <a href="https://github.com/aishdeep12/whatsappagent" target="_blank" rel="noopener">View on GitHub &rarr;</a>
-        <span class="lang">Python</span>
-      </div>
-      <div class="project-card">
-        <h3><span class="card-icon">&#128658;</span>Hubble</h3>
-        <div class="desc muted">A marketplace mobile application connecting buyers and sellers with a focus on usability and clean interaction design.</div>
-        <a href="https://github.com/aishdeep12/Hubble" target="_blank" rel="noopener">View on GitHub &rarr;</a>
-        <span class="lang">Java</span>
-      </div>
-      <div class="project-card">
-        <h3><span class="card-icon">&#127891;</span>Eddufy</h3>
-        <div class="desc muted">An educational mobile application built to support learning experiences through practical software design.</div>
-        <a href="https://github.com/aishdeep12/Eddufy" target="_blank" rel="noopener">View on GitHub &rarr;</a>
-        <span class="lang">Java</span>
+    <div class="sec-head reveal">
+      <h2>Featured projects</h2>
+      <div class="chips" role="group" aria-label="Filter projects">
+        <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="chip" type="button" data-filter="ai" aria-pressed="false">AI agents</button>
+        <button class="chip" type="button" data-filter="mobile" aria-pressed="false">Mobile apps</button>
       </div>
     </div>
-
-    <div class="highlight-box">
-      <p class="muted"><strong>More on GitHub:</strong> <a href="https://github.com/aishdeep12" target="_blank" rel="noopener">@aishdeep12</a> &mdash; public repositories spanning AI agents, mobile applications, and experimental projects.</p>
+    <div class="grid" id="projectGrid">
+      <div class="card project-card reveal" data-kind="ai">
+        <h3><span class="card-ic"><svg class="ic" viewBox="0 0 24 24"><use href="#i-bot"/></svg></span>ReflexionAgents</h3>
+        <p class="desc">Exploring self-improving AI agents through reflexion architecture, iterative learning, and error correction.</p>
+        <div class="project-foot"><a href="https://github.com/aishdeep12/ReflexionAgents" target="_blank" rel="noopener">View on GitHub <svg class="ic" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></a><span class="lang">Python</span></div>
+      </div>
+      <div class="card project-card reveal" data-kind="ai">
+        <h3><span class="card-ic"><svg class="ic" viewBox="0 0 24 24"><use href="#i-server"/></svg></span>Ollama Agent</h3>
+        <p class="desc">A lightweight agent system powered by local language models through Ollama, exploring privacy-conscious AI workflows.</p>
+        <div class="project-foot"><a href="https://github.com/aishdeep12/ollamaAgent" target="_blank" rel="noopener">View on GitHub <svg class="ic" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></a><span class="lang">Jupyter Notebook</span></div>
+      </div>
+      <div class="card project-card reveal" data-kind="ai">
+        <h3><span class="card-ic"><svg class="ic" viewBox="0 0 24 24"><use href="#i-plug"/></svg></span>WhatsApp Agent</h3>
+        <p class="desc">An LLM-powered conversational agent integrated with WhatsApp for real-time, intelligent messaging workflows.</p>
+        <div class="project-foot"><a href="https://github.com/aishdeep12/whatsappagent" target="_blank" rel="noopener">View on GitHub <svg class="ic" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></a><span class="lang">Python</span></div>
+      </div>
+      <div class="card project-card reveal" data-kind="mobile">
+        <h3><span class="card-ic"><svg class="ic" viewBox="0 0 24 24"><use href="#i-blocks"/></svg></span>Hubble</h3>
+        <p class="desc">A marketplace mobile application connecting buyers and sellers with a focus on usability and clean interaction design.</p>
+        <div class="project-foot"><a href="https://github.com/aishdeep12/Hubble" target="_blank" rel="noopener">View on GitHub <svg class="ic" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></a><span class="lang">Java</span></div>
+      </div>
+      <div class="card project-card reveal" data-kind="mobile">
+        <h3><span class="card-ic"><svg class="ic" viewBox="0 0 24 24"><use href="#i-cap"/></svg></span>Eddufy</h3>
+        <p class="desc">An educational mobile application built to support learning experiences through practical software design.</p>
+        <div class="project-foot"><a href="https://github.com/aishdeep12/Eddufy" target="_blank" rel="noopener">View on GitHub <svg class="ic" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></a><span class="lang">Java</span></div>
+      </div>
     </div>
+    <p class="highlight-box muted reveal"><strong>More on GitHub:</strong> <a href="https://github.com/aishdeep12" target="_blank" rel="noopener">@aishdeep12</a>, with public repositories spanning AI agents, mobile applications, and experimental projects.</p>
   </div>
 </section>
-
-<hr class="section-divider">
 
 <section id="expertise">
   <div class="container">
-    <h2><span class="h2-icon">&#128736;&#65039;</span>What I Build</h2>
-    <div class="grid">
-      <div class="card">
-        <h3><span class="card-icon">&#129302;</span>Agentic AI Systems</h3>
-        <p class="muted">Autonomous and collaborative agents with planning, tool use, memory, orchestration, and reflection loops.</p>
-        <div class="tech-list">
-          <span class="tech-tag">LangGraph</span><span class="tech-tag">CrewAI</span><span class="tech-tag">Reflexion</span><span class="tech-tag">Multi-Agent Systems</span><span class="tech-tag">Tool Calling</span><span class="tech-tag">Memory Context</span>
-        </div>
-      </div>
-      <div class="card">
-        <h3><span class="card-icon">&#128269;</span>RAG Knowledge Systems</h3>
-        <p class="muted">Production-oriented retrieval systems with semantic search, knowledge graphs, reranking, and intelligent chunking.</p>
-        <div class="tech-list">
-          <span class="tech-tag">Gemini Embedding 2</span><span class="tech-tag">FAISS</span><span class="tech-tag">Neo4j</span><span class="tech-tag">Graph RAG</span><span class="tech-tag">Semantic Splitting</span><span class="tech-tag">Reranking</span>
-        </div>
-      </div>
-      <div class="card">
-        <h3><span class="card-icon">&#128196;</span>Document Intelligence</h3>
-        <p class="muted">OCR and multimodal understanding workflows for extracting structured information from complex documents.</p>
-        <div class="tech-list">
-          <span class="tech-tag">Mistral OCR</span><span class="tech-tag">SmolDocling</span><span class="tech-tag">PyMuPDF</span><span class="tech-tag">VLMs</span><span class="tech-tag">Structured Extraction</span>
-        </div>
-      </div>
-      <div class="card">
-        <h3><span class="card-icon">&#128268;</span>MCP Integrations</h3>
-        <p class="muted">Model Context Protocol implementations, tool interfaces, and integrations that connect language models with real systems.</p>
-        <div class="tech-list">
-          <span class="tech-tag">MCP Servers</span><span class="tech-tag">FastAPI</span><span class="tech-tag">API Design</span><span class="tech-tag">Webhooks</span><span class="tech-tag">Event-Driven Systems</span>
-        </div>
-      </div>
-      <div class="card">
-        <h3><span class="card-icon">&#128202;</span>LLM Evaluation Metrics</h3>
-        <p class="muted">Evaluation workflows and metrics for measuring quality, groundedness, latency, cost, safety, and system reliability.</p>
-        <div class="tech-list">
-          <span class="tech-tag">Evaluation Pipelines</span><span class="tech-tag">RAGAS</span><span class="tech-tag">Quality Metrics</span><span class="tech-tag">A/B Testing</span><span class="tech-tag">Human Feedback</span><span class="tech-tag">Observability</span>
-        </div>
-      </div>
-      <div class="card">
-        <h3><span class="card-icon">&#127991;&#65039;</span>Platform Engineering</h3>
-        <p class="muted">Scalable, observable AI infrastructure and deployment workflows built for dependable operation and change.</p>
-        <div class="tech-list">
-          <span class="tech-tag">Docker</span><span class="tech-tag">Kubernetes</span><span class="tech-tag">Async Processing</span><span class="tech-tag">CI/CD</span><span class="tech-tag">Cloud-Native</span>
-        </div>
-      </div>
-      <div class="card">
-        <h3><span class="card-icon">&#128452;&#65039;</span>Data Engineering</h3>
-        <p class="muted">Robust data pipelines, data stores, and worker-based processing for AI workloads and applications.</p>
-        <div class="tech-list">
-          <span class="tech-tag">Python</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Redis</span><span class="tech-tag">Dramatiq</span><span class="tech-tag">Spark</span><span class="tech-tag">Pandas</span>
-        </div>
-      </div>
-      <div class="card">
-        <h3><span class="card-icon">&#127760;</span>Open-Source Models</h3>
-        <p class="muted">Working with open-source model ecosystems for fine-tuning, inference, and experimentation.</p>
-        <div class="tech-list">
-          <span class="tech-tag">Hugging Face</span><span class="tech-tag">Transformers</span><span class="tech-tag">Model Hub</span><span class="tech-tag">Fine-tuning</span><span class="tech-tag">Inference Endpoints</span>
-        </div>
-      </div>
-      <div class="card">
-        <h3><span class="card-icon">&#9997;&#65039;</span>Technical Writing</h3>
-        <p class="muted">Writing that breaks down AI systems, agents, and RAG architecture into clear, practical explanations for engineers and builders.</p>
-        <div class="tech-list">
-          <span class="tech-tag">Substack</span><span class="tech-tag">System Design Deep-Dives</span><span class="tech-tag">Developer Education</span><span class="tech-tag">Documentation</span>
-        </div>
+    <div class="sec-head reveal"><h2>What I build</h2></div>
+    <div class="build reveal">
+      <div class="build-list" role="tablist" aria-label="Areas of work" id="buildList"></div>
+      <div id="buildPanels">
+        <div class="build-panel" data-ic="bot"><h3>Agentic AI Systems</h3><p>Autonomous and collaborative agents with planning, tool use, memory, orchestration, and reflection loops.</p><div class="tech-list"><span class="tech-tag">LangGraph</span><span class="tech-tag">CrewAI</span><span class="tech-tag">Reflexion</span><span class="tech-tag">Multi-Agent Systems</span><span class="tech-tag">Tool Calling</span><span class="tech-tag">Memory Context</span></div></div>
+        <div class="build-panel" data-ic="search"><h3>RAG Knowledge Systems</h3><p>Production-oriented retrieval systems with semantic search, knowledge graphs, reranking, and intelligent chunking.</p><div class="tech-list"><span class="tech-tag">Gemini Embedding 2</span><span class="tech-tag">FAISS</span><span class="tech-tag">Neo4j</span><span class="tech-tag">Graph RAG</span><span class="tech-tag">Semantic Splitting</span><span class="tech-tag">Reranking</span></div></div>
+        <div class="build-panel" data-ic="doc"><h3>Document Intelligence</h3><p>OCR and multimodal understanding workflows for extracting structured information from complex documents.</p><div class="tech-list"><span class="tech-tag">Mistral OCR</span><span class="tech-tag">SmolDocling</span><span class="tech-tag">PyMuPDF</span><span class="tech-tag">VLMs</span><span class="tech-tag">Structured Extraction</span></div></div>
+        <div class="build-panel" data-ic="plug"><h3>MCP Integrations</h3><p>Model Context Protocol implementations, tool interfaces, and integrations that connect language models with real systems.</p><div class="tech-list"><span class="tech-tag">MCP Servers</span><span class="tech-tag">FastAPI</span><span class="tech-tag">API Design</span><span class="tech-tag">Webhooks</span><span class="tech-tag">Event-Driven Systems</span></div></div>
+        <div class="build-panel" data-ic="chart"><h3>LLM Evaluation Metrics</h3><p>Evaluation workflows and metrics for measuring quality, groundedness, latency, cost, safety, and system reliability.</p><div class="tech-list"><span class="tech-tag">Evaluation Pipelines</span><span class="tech-tag">RAGAS</span><span class="tech-tag">Quality Metrics</span><span class="tech-tag">A/B Testing</span><span class="tech-tag">Human Feedback</span><span class="tech-tag">Observability</span></div></div>
+        <div class="build-panel" data-ic="server"><h3>Platform Engineering</h3><p>Scalable, observable AI infrastructure and deployment workflows built for dependable operation and change.</p><div class="tech-list"><span class="tech-tag">Docker</span><span class="tech-tag">Kubernetes</span><span class="tech-tag">Async Processing</span><span class="tech-tag">CI/CD</span><span class="tech-tag">Cloud-Native</span></div></div>
+        <div class="build-panel" data-ic="db"><h3>Data Engineering</h3><p>Robust data pipelines, data stores, and worker-based processing for AI workloads and applications.</p><div class="tech-list"><span class="tech-tag">Python</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Redis</span><span class="tech-tag">Dramatiq</span><span class="tech-tag">Spark</span><span class="tech-tag">Pandas</span></div></div>
+        <div class="build-panel" data-ic="globe"><h3>Open-Source Models</h3><p>Working with open-source model ecosystems for fine-tuning, inference, and experimentation.</p><div class="tech-list"><span class="tech-tag">Hugging Face</span><span class="tech-tag">Transformers</span><span class="tech-tag">Model Hub</span><span class="tech-tag">Fine-tuning</span><span class="tech-tag">Inference Endpoints</span></div></div>
+        <div class="build-panel" data-ic="pen"><h3>Technical Writing</h3><p>Writing that breaks down AI systems, agents, and RAG architecture into clear, practical explanations for engineers and builders.</p><div class="tech-list"><span class="tech-tag">Substack</span><span class="tech-tag">System Design Deep-Dives</span><span class="tech-tag">Developer Education</span><span class="tech-tag">Documentation</span></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<hr class="section-divider">
+<section id="experience">
+  <div class="container">
+    <div class="sec-head reveal"><div><h2>Experience</h2><p class="muted">Eight years across capital markets, retail analytics and life sciences, moving from data into production AI.</p></div></div>
+    <div class="timeline reveal">
+      <details class="job" name="job" open>
+        <summary><span class="job-role">VP, Lead Gen AI Engineer</span><span class="job-org">Citi, Innovation Lab</span><span class="job-when">Jul 2026 to now</span><svg class="ic" viewBox="0 0 24 24"><use href="#i-chev"/></svg></summary>
+        <div class="job-body"><p>Leading document intelligence work: OCR and vision-language pipelines, structure-aware chunking and ingestion into PostgreSQL, distributed processing with Redis and Dramatiq, and retrieval with embeddings, metadata filtering and reranking.</p>
+        <div class="tech-list"><span class="tech-tag">Mistral OCR</span><span class="tech-tag">SmolDocling</span><span class="tech-tag">PyMuPDF</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Redis</span><span class="tech-tag">Dramatiq</span><span class="tech-tag">FAISS</span></div></div>
+      </details>
+      <details class="job" name="job">
+        <summary><span class="job-role">Gen AI Engineer</span><span class="job-org">Citi, Capital Markets</span><span class="job-when">May 2025 to Jun 2026</span><svg class="ic" viewBox="0 0 24 24"><use href="#i-chev"/></svg></summary>
+        <div class="job-body"><p>Built LLM systems that extract signals from unstructured conversations, with agentic workflows, evaluation pipelines, asynchronous inference tuning, cost reduction, and audio transcription with speaker tagging.</p>
+        <div class="tech-list"><span class="tech-tag">Gemini</span><span class="tech-tag">Vertex AI</span><span class="tech-tag">Agentic Workflows</span><span class="tech-tag">LLM Evaluation</span><span class="tech-tag">Whisper</span></div></div>
+      </details>
+      <details class="job" name="job">
+        <summary><span class="job-role">Data Engineer, then Senior Data Engineer</span><span class="job-org">Citi</span><span class="job-when">Feb 2022 to Apr 2025</span><svg class="ic" viewBox="0 0 24 24"><use href="#i-chev"/></svg></summary>
+        <div class="job-body"><p>Built Python and Node microservices, CI/CD pipelines and Kubernetes operations, plus near-real-time streaming controls on PySpark and a controls platform migration.</p>
+        <div class="tech-list"><span class="tech-tag">Python</span><span class="tech-tag">Node</span><span class="tech-tag">PySpark</span><span class="tech-tag">Kubernetes</span><span class="tech-tag">Jenkins</span></div></div>
+      </details>
+      <div class="job static"><div class="job-row"><span class="job-role">Data Analyst, then Senior Data Analyst</span><span class="job-org">Hudson's Bay</span><span class="job-when">2020 to 2022</span></div></div>
+      <div class="job static"><div class="job-row"><span class="job-role">Data Management Associate</span><span class="job-org">Tigris Life Sciences</span><span class="job-when">2017 to 2018</span></div></div>
+    </div>
+    <div class="edu">
+      <div class="card reveal"><h3><span class="card-ic"><svg class="ic" viewBox="0 0 24 24"><use href="#i-cap"/></svg></span>Big Data Analytics</h3><p>Postgraduate certificate, Georgian College</p></div>
+      <div class="card reveal"><h3><span class="card-ic"><svg class="ic" viewBox="0 0 24 24"><use href="#i-cap"/></svg></span>Mobile App Development</h3><p>Postgraduate certificate, Georgian College</p></div>
+      <div class="card reveal"><h3><span class="card-ic"><svg class="ic" viewBox="0 0 24 24"><use href="#i-cap"/></svg></span>B.Tech, Electronics &amp; Communication</h3><p>Maharaja Agrasen Institute of Technology</p></div>
+    </div>
+  </div>
+</section>
 
 <section id="approach">
   <div class="container">
-    <h2><span class="h2-icon">&#129517;</span>How I Work</h2>
-    <p class="muted" style="margin-bottom: 25px; font-size: 1.02rem;">I bridge requirements with sound architecture and practical engineering. The goal is to create AI systems that are useful, measurable, secure, maintainable, observable, and ready to evolve.</p>
-    <div class="approach-section">
-      <ol class="muted">
-        <li><strong style="color: var(--heading);">&#129513; Clarify</strong> &mdash; Understand the use case, users, data, constraints, risks, and measures of success</li>
-        <li><strong style="color: var(--heading);">&#128207; Design</strong> &mdash; Architect a scalable system with the appropriate models, data flows, interfaces, and operational patterns</li>
-        <li><strong style="color: var(--heading);">&#128295; Implement</strong> &mdash; Build, integrate, evaluate, and iteratively improve the solution through practical engineering</li>
-        <li><strong style="color: var(--heading);">&#128221; Document</strong> &mdash; Capture decisions and make concepts accessible through mentoring and education</li>
-      </ol>
+    <div class="sec-head reveal"><div><h2>How I work</h2><p class="muted">I bridge requirements with sound architecture and practical engineering. The goal is to create AI systems that are useful, measurable, secure, maintainable, observable, and ready to evolve.</p></div></div>
+    <div class="steps reveal">
+      <div class="step"><h3>Clarify</h3><p>Understand the use case, users, data, constraints, risks, and measures of success.</p></div>
+      <div class="step"><h3>Design</h3><p>Architect a scalable system with the appropriate models, data flows, interfaces, and operational patterns.</p></div>
+      <div class="step"><h3>Implement</h3><p>Build, integrate, evaluate, and iteratively improve the solution through practical engineering.</p></div>
+      <div class="step"><h3>Document</h3><p>Capture decisions and make concepts accessible through mentoring and education.</p></div>
     </div>
   </div>
 </section>
-
-<hr class="section-divider">
 
 <section id="philosophy">
   <div class="container">
-    <h2><span class="h2-icon">&#128161;</span>Philosophy</h2>
+    <div class="sec-head reveal"><h2>Philosophy</h2></div>
     <div class="grid">
-      <div class="card">
-        <h3><span class="card-icon">&#128640;</span>Production First</h3>
-        <p class="muted">I focus on systems that work reliably in production, not just demos. Observability, error handling, and scalability are part of the design.</p>
-      </div>
-      <div class="card">
-        <h3><span class="card-icon">&#128207;</span>Measure Everything</h3>
-        <p class="muted">Evaluation belongs in the system from the beginning. Quality, latency, cost, safety, and user feedback guide improvement.</p>
-      </div>
-      <div class="card">
-        <h3><span class="card-icon">&#129513;</span>Composable Architecture</h3>
-        <p class="muted">Systems should be modular, testable, and evolvable. Good architecture makes change safer as requirements develop.</p>
-      </div>
-      <div class="card">
-        <h3><span class="card-icon">&#129309;</span>Share Knowledge</h3>
-        <p class="muted">AI should not be a black box. I value clear decisions, usable documentation, mentoring, and practical learning.</p>
-      </div>
+      <div class="card reveal"><h3><span class="card-ic"><svg class="ic" viewBox="0 0 24 24"><use href="#i-rocket"/></svg></span>Production First</h3><p>I focus on systems that work reliably in production, not just demos. Observability, error handling, and scalability are part of the design.</p></div>
+      <div class="card reveal"><h3><span class="card-ic"><svg class="ic" viewBox="0 0 24 24"><use href="#i-ruler"/></svg></span>Measure Everything</h3><p>Evaluation belongs in the system from the beginning. Quality, latency, cost, safety, and user feedback guide improvement.</p></div>
+      <div class="card reveal"><h3><span class="card-ic"><svg class="ic" viewBox="0 0 24 24"><use href="#i-blocks"/></svg></span>Composable Architecture</h3><p>Systems should be modular, testable, and evolvable. Good architecture makes change safer as requirements develop.</p></div>
+      <div class="card reveal"><h3><span class="card-ic"><svg class="ic" viewBox="0 0 24 24"><use href="#i-users"/></svg></span>Share Knowledge</h3><p>AI should not be a black box. I value clear decisions, usable documentation, mentoring, and practical learning.</p></div>
     </div>
-
-    <div class="mentor-box">
-      <h3 style="margin-bottom: 12px;"><span class="card-icon">&#127891;</span>Mentoring Community</h3>
-      <p class="muted">Beyond building systems, I spend time mentoring engineers and students exploring AI, helping them navigate concepts like RAG, agents, and evaluation, and supporting people making a transition into applied AI work. I enjoy simplifying complex ideas and helping others get unstuck, whether that's through a quick conversation, a code review, or a longer-term mentoring relationship.</p>
+    <div class="mentor-box reveal">
+      <span class="card-ic"><svg class="ic" viewBox="0 0 24 24"><use href="#i-cap"/></svg></span>
+      <div><h3>Mentoring Community</h3>
+      <p class="muted">Beyond building systems, I spend time mentoring engineers and students exploring AI, helping them navigate concepts like RAG, agents, and evaluation, and supporting people making a transition into applied AI work. I enjoy simplifying complex ideas and helping others get unstuck, whether that's through a quick conversation, a code review, or a longer-term mentoring relationship.</p></div>
     </div>
   </div>
 </section>
-
-<hr class="section-divider">
 
 <section id="stack">
   <div class="container">
-    <h2><span class="h2-icon">&#9881;&#65039;</span>Tech Stack</h2>
+    <div class="sec-head reveal"><h2>Tech stack</h2></div>
     <div class="grid grid-3">
-      <div class="card">
-        <h3><span class="card-icon">&#128483;&#65039;</span>Languages</h3>
-        <div class="tech-list">
-          <span class="tech-tag">Python</span><span class="tech-tag">SQL</span><span class="tech-tag">JavaScript</span><span class="tech-tag">Java</span><span class="tech-tag">C++</span>
-        </div>
-      </div>
-      <div class="card">
-        <h3><span class="card-icon">&#129504;</span>AI &amp; Agents</h3>
-        <div class="tech-list">
-          <span class="tech-tag">LangGraph</span><span class="tech-tag">CrewAI</span><span class="tech-tag">LangChain</span><span class="tech-tag">LlamaIndex</span><span class="tech-tag">Ollama</span><span class="tech-tag">Hugging Face</span>
-        </div>
-      </div>
-      <div class="card">
-        <h3><span class="card-icon">&#128451;&#65039;</span>Knowledge &amp; Data</h3>
-        <div class="tech-list">
-          <span class="tech-tag">Neo4j</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Redis</span><span class="tech-tag">FAISS</span><span class="tech-tag">Spark</span><span class="tech-tag">Pandas</span>
-        </div>
-      </div>
-      <div class="card">
-        <h3><span class="card-icon">&#128421;&#65039;</span>Infrastructure</h3>
-        <div class="tech-list">
-          <span class="tech-tag">Docker</span><span class="tech-tag">Kubernetes</span><span class="tech-tag">AWS</span><span class="tech-tag">GCP</span><span class="tech-tag">Linux</span>
-        </div>
-      </div>
-      <div class="card">
-        <h3><span class="card-icon">&#128230;</span>Application Layer</h3>
-        <div class="tech-list">
-          <span class="tech-tag">FastAPI</span><span class="tech-tag">Dramatiq</span><span class="tech-tag">Celery</span><span class="tech-tag">gRPC</span><span class="tech-tag">REST</span><span class="tech-tag">MCP</span>
-        </div>
-      </div>
-      <div class="card">
-        <h3><span class="card-icon">&#128295;</span>Developer Tools</h3>
-        <div class="tech-list">
-          <span class="tech-tag">Git</span><span class="tech-tag">GitHub Actions</span><span class="tech-tag">Jupyter</span><span class="tech-tag">VS Code</span><span class="tech-tag">OpenTelemetry</span>
-        </div>
-      </div>
+      <div class="card reveal"><h3><span class="card-ic"><svg class="ic" viewBox="0 0 24 24"><use href="#i-code"/></svg></span>Languages</h3><div class="tech-list"><span class="tech-tag">Python</span><span class="tech-tag">SQL</span><span class="tech-tag">JavaScript</span><span class="tech-tag">Java</span><span class="tech-tag">C++</span></div></div>
+      <div class="card reveal"><h3><span class="card-ic"><svg class="ic" viewBox="0 0 24 24"><use href="#i-bot"/></svg></span>AI &amp; Agents</h3><div class="tech-list"><span class="tech-tag">LangGraph</span><span class="tech-tag">CrewAI</span><span class="tech-tag">LangChain</span><span class="tech-tag">LlamaIndex</span><span class="tech-tag">Ollama</span><span class="tech-tag">Hugging Face</span></div></div>
+      <div class="card reveal"><h3><span class="card-ic"><svg class="ic" viewBox="0 0 24 24"><use href="#i-db"/></svg></span>Knowledge &amp; Data</h3><div class="tech-list"><span class="tech-tag">Neo4j</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Redis</span><span class="tech-tag">FAISS</span><span class="tech-tag">Spark</span><span class="tech-tag">Pandas</span></div></div>
+      <div class="card reveal"><h3><span class="card-ic"><svg class="ic" viewBox="0 0 24 24"><use href="#i-server"/></svg></span>Infrastructure</h3><div class="tech-list"><span class="tech-tag">Docker</span><span class="tech-tag">Kubernetes</span><span class="tech-tag">AWS</span><span class="tech-tag">GCP</span><span class="tech-tag">Linux</span></div></div>
+      <div class="card reveal"><h3><span class="card-ic"><svg class="ic" viewBox="0 0 24 24"><use href="#i-layers"/></svg></span>Application Layer</h3><div class="tech-list"><span class="tech-tag">FastAPI</span><span class="tech-tag">Dramatiq</span><span class="tech-tag">Celery</span><span class="tech-tag">gRPC</span><span class="tech-tag">REST</span><span class="tech-tag">MCP</span></div></div>
+      <div class="card reveal"><h3><span class="card-ic"><svg class="ic" viewBox="0 0 24 24"><use href="#i-tool"/></svg></span>Developer Tools</h3><div class="tech-list"><span class="tech-tag">Git</span><span class="tech-tag">GitHub Actions</span><span class="tech-tag">Jupyter</span><span class="tech-tag">VS Code</span><span class="tech-tag">OpenTelemetry</span></div></div>
     </div>
   </div>
 </section>
 
-<hr class="section-divider">
-
-<footer>
+<section id="nusiva">
   <div class="container">
-    <div class="muted">Based in the Greater Toronto Area, Canada</div>
-    <div class="social-links">
-      <a href="https://github.com/aishdeep12" target="_blank" rel="noopener">GitHub</a>
-      <span style="color: var(--border);">|</span>
-      <a href="https://www.linkedin.com/in/aishdeep-kharbanda-613104b2" target="_blank" rel="noopener">LinkedIn</a>
-      <span style="color: var(--border);">|</span>
-      <a href="https://www.instagram.com/analytunb" target="_blank" rel="noopener">Instagram</a>
-      <span style="color: var(--border);">|</span>
-      <a href="https://aishdeep.substack.com/" target="_blank" rel="noopener">Substack</a>
+    <div class="callout reveal">
+      <div><h2>Nusiva Labs</h2><p>Where I build AI agents in public: new models decoded in 60 seconds, real agent builds, and practical automation for small businesses.</p></div>
+      <a class="btn" href="nusivalabs/">Visit Nusiva Labs <svg class="ic" viewBox="0 0 24 24"><use href="#i-arrow"/></svg></a>
     </div>
-    <div class="muted" style="margin-top: 20px; font-size: 0.82rem;">Open to conversations about AI engineering, system architecture, research, and applied innovation</div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="container">
+    <div class="foot">
+      <div><h2>Let's talk</h2><p class="muted">Open to conversations about AI engineering, system architecture, research, and applied innovation.</p></div>
+      <div class="social-links">
+        <a href="https://github.com/aishdeep12" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/aishdeep-kharbanda-613104b2" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/analytunb" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://aishdeep.substack.com/" target="_blank" rel="noopener">Substack</a>
+      </div>
+    </div>
+    <p class="legal">Based in the Greater Toronto Area, Canada</p>
   </div>
 </footer>
 
+<button class="icon-btn to-top" id="toTop" type="button" aria-label="Back to top"><svg class="ic" viewBox="0 0 24 24" style="transform:rotate(-90deg)"><use href="#i-arrow"/></svg></button>
+
 <script>
-function applyTheme(theme) {
-  document.documentElement.setAttribute('data-theme', theme);
-  document.getElementById('themeIcon').innerHTML = theme === 'dark' ? '&#9728;' : '&#9789;';
-  document.getElementById('themeLabel').textContent = theme === 'dark' ? 'Light mode' : 'Dark mode';
-  localStorage.setItem('portfolio-theme', theme);
-}
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement;
+  function $(s, r) { return (r || document).querySelector(s); }
+  function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
 
-function toggleTheme() {
-  const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-  applyTheme(current === 'dark' ? 'light' : 'dark');
-}
+  /* Theme */
+  var themeBtn = $('#themeToggle'), themeIcon = $('#themeIcon');
+  function applyTheme(t) {
+    root.setAttribute('data-theme', t);
+    themeIcon.setAttribute('href', t === 'dark' ? '#i-sun' : '#i-moon');
+    themeBtn.setAttribute('aria-label', t === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    try { localStorage.setItem('portfolio-theme', t); } catch (e) {}
+  }
+  applyTheme(root.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
+  themeBtn.addEventListener('click', function () { applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'); });
 
-(function initTheme() {
-  const saved = localStorage.getItem('portfolio-theme');
-  applyTheme(saved || 'dark');
+  /* Menu */
+  var nav = $('#nav'), menuBtn = $('#menuBtn');
+  function setMenu(o) { nav.classList.toggle('open', o); menuBtn.setAttribute('aria-expanded', o ? 'true' : 'false'); }
+  menuBtn.addEventListener('click', function () { setMenu(!nav.classList.contains('open')); });
+  nav.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+
+  /* Typed subtitle */
+  var typed = $('#typed');
+  var lines = [typed.textContent, 'Agentic systems, RAG and document intelligence', 'Production AI platforms, measured and observable'];
+  if (!reduce) {
+    var caret = document.createElement('span'); caret.className = 'caret'; typed.after(caret);
+    var li = 0, ci = lines[0].length, del = false;
+    (function tick() {
+      var wait = 45;
+      if (!del && ci === lines[li].length) { del = true; wait = 2600; }
+      else if (del && ci === 0) { del = false; li = (li + 1) % lines.length; wait = 350; }
+      else { ci += del ? -1 : 1; if (del) wait = 22; }
+      typed.textContent = lines[li].slice(0, ci);
+      setTimeout(tick, wait);
+    })();
+  }
+
+  /* Stat count-up */
+  function countUp(el) {
+    var n = +el.dataset.count, t0 = null;
+    if (reduce) return;
+    (function step(t) {
+      if (!t0) t0 = t;
+      var p = Math.min(1, (t - t0) / 900);
+      el.textContent = Math.round(n * (1 - Math.pow(1 - p, 3))) + '+';
+      if (p < 1) requestAnimationFrame(step);
+    })(performance.now());
+  }
+
+  /* Project filter */
+  var chips = $$('.chip'), projects = $$('.project-card');
+  chips.forEach(function (c) {
+    c.addEventListener('click', function () {
+      chips.forEach(function (o) { o.setAttribute('aria-pressed', o === c ? 'true' : 'false'); });
+      projects.forEach(function (p) { p.hidden = c.dataset.filter !== 'all' && p.dataset.kind !== c.dataset.filter; p.classList.add('in'); });
+    });
+  });
+
+  /* What I build: tabs made from the panels */
+  var panels = $$('.build-panel'), list = $('#buildList'), tabs = [];
+  panels.forEach(function (p, i) {
+    var b = document.createElement('button');
+    b.className = 'build-tab'; b.type = 'button'; b.setAttribute('role', 'tab');
+    b.id = 'bt' + i; p.id = 'bp' + i; p.setAttribute('role', 'tabpanel'); p.setAttribute('aria-labelledby', b.id); b.setAttribute('aria-controls', p.id);
+    b.innerHTML = '<span class="card-ic"><svg class="ic" viewBox="0 0 24 24"><use href="#i-' + p.dataset.ic + '"/></svg></span>';
+    b.appendChild(document.createTextNode($('h3', p).textContent));
+    b.addEventListener('click', function () { select(i, true); });
+    b.addEventListener('keydown', function (e) {
+      var d = (e.key === 'ArrowDown' || e.key === 'ArrowRight') ? 1 : (e.key === 'ArrowUp' || e.key === 'ArrowLeft') ? -1 : 0;
+      if (d) { e.preventDefault(); var n = (i + d + panels.length) % panels.length; select(n, true); tabs[n].focus(); }
+    });
+    list.appendChild(b); tabs.push(b);
+  });
+  function select(i, animate) {
+    panels.forEach(function (p, k) {
+      p.hidden = k !== i; p.classList.remove('swap');
+      tabs[k].setAttribute('aria-selected', k === i ? 'true' : 'false'); tabs[k].tabIndex = k === i ? 0 : -1;
+    });
+    if (animate) { void panels[i].offsetWidth; panels[i].classList.add('swap'); }
+  }
+  select(0, false);
+
+  /* Scroll: progress, back to top, reveal, current section */
+  var bar = $('#progress'), toTop = $('#toTop'), ticking = false;
+  function onScroll() {
+    var max = root.scrollHeight - window.innerHeight;
+    bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, window.scrollY / max) : 0) + ')';
+    toTop.classList.toggle('on', window.scrollY > 700);
+    if (window.scrollY < 200) $$('.nav a[aria-current]').forEach(function (a) { a.removeAttribute('aria-current'); });
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  toTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
+  onScroll();
+
+  var reveals = $$('.reveal'), stats = $$('.stat-number');
+  if ('IntersectionObserver' in window) {
+    var ro = new IntersectionObserver(function (es) {
+      es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); ro.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
+    reveals.forEach(function (r) { ro.observe(r); });
+    var so = new IntersectionObserver(function (es) {
+      es.forEach(function (en) { if (en.isIntersecting) { countUp(en.target); so.unobserve(en.target); } });
+    }, { threshold: 0.6 });
+    stats.forEach(function (s) { so.observe(s); });
+    var links = {};
+    $$('.nav a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+    var no = new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        Object.keys(links).forEach(function (k) { links[k].removeAttribute('aria-current'); });
+        links[en.target.id].setAttribute('aria-current', 'true');
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    Object.keys(links).forEach(function (k) { var s = document.getElementById(k); if (s) no.observe(s); });
+  } else {
+    reveals.forEach(function (r) { r.classList.add('in'); });
+  }
 })();
 </script>
 
