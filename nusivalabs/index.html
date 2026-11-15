@@ -8,30 +8,32 @@
 <meta property="og:title" content="Nusiva Labs: AI agents, built in public">
 <meta property="og:description" content="New AI models and features decoded in 60 seconds, plus real AI agent builds.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%2312122E'/%3E%3Cg transform='translate(8 10)' fill='none'%3E%3Cpath d='M13 36V13l22 23V23' stroke='%23F3EFE4' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='13' cy='36' r='5.2' fill='%239AA5FF'/%3E%3Cpath d='M35 3Q35.8 9.2 42 10Q35.8 10.8 35 17Q34.2 10.8 28 10Q34.2 9.2 35 3Z' fill='%23FFB938'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23111417'/%3E%3Cg transform='translate(8 10)' fill='none'%3E%3Cpath d='M13 36V13l22 23V23' stroke='%23F3EFE4' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='13' cy='36' r='5.2' fill='%2334D399'/%3E%3Cpath d='M35 3Q35.8 9.2 42 10Q35.8 10.8 35 17Q34.2 10.8 28 10Q34.2 9.2 35 3Z' fill='%23A7F3D0'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <style>
 :root {
-  /* A quiet white page in the brand's indigo ink. The dark agent-run panel is the one
-     loud element; amber appears only as the spark: the logo, the run's result, the last call to action. */
-  --bg: #FFFFFF;
-  --surface: #F4F5FA;
-  --ink: #12122E;
-  --text: #2B2C48;
-  --muted: #5A5B7A;
-  --line: #E1E3EE;
-  --indigo: #3F3BB0;
-  --neuron: #9AA5FF;
-  --spark: #FFB938;
-  --on-ink: #FFFFFF;
-  --on-ink-muted: #C3C5E0;
-  --ink-line: #2F2F63;
+  /* Charcoal throughout, with one emerald accent for actions, labels and the agent run's result. */
+  --bg: #111417;
+  --surface: #181D22;
+  --panel: #1B2127;
+  --ink: #F2F5F3;
+  --text: #D3D9D5;
+  --muted: #98A29D;
+  --line: #2A3138;
+  --accent: #34D399;
+  --accent-hover: #5EE0AF;
+  --neuron: #6EE7B7;
+  --spark: #34D399;
+  --on-accent: #0B1F17;
+  --on-ink: #F2F5F3;
+  --on-ink-muted: #B4BDB8;
+  --ink-line: #2F373E;
   --font: "Schibsted Grotesk", "Segoe UI", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
   --wrap: 1120px;
-  color-scheme: light;
+  color-scheme: dark;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 84px; }
@@ -45,12 +47,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 img { max-width: 100%; display: block; }
-a { color: var(--indigo); }
-a:focus-visible { outline: 3px solid var(--indigo); outline-offset: 3px; border-radius: 6px; }
+a { color: var(--accent); }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
 h1, h2, h3 { margin: 0; color: var(--ink); text-wrap: balance; }
 p { margin: 0; }
 .wrap { max-width: var(--wrap); margin: 0 auto; padding-left: 24px; padding-right: 24px; }
-.label { font-size: 15px; font-weight: 600; color: var(--indigo); }
+.label { font-size: 15px; font-weight: 600; color: var(--accent); }
 
 .btn {
   display: inline-block;
@@ -64,15 +66,15 @@ p { margin: 0; }
   border: 1.5px solid transparent;
   transition: background 0.15s ease, border-color 0.15s ease;
 }
-.btn-primary { background: var(--ink); color: var(--on-ink); }
-.btn-primary:hover { background: #24245A; }
-.btn-outline { border-color: #C9CCDF; color: var(--ink); background: var(--bg); }
-.btn-outline:hover { border-color: var(--ink); }
-.btn-spark { background: var(--spark); color: var(--ink); }
-.btn-spark:hover { background: #FFC85C; }
+.btn-primary { background: var(--accent); color: var(--on-accent); }
+.btn-primary:hover { background: var(--accent-hover); }
+.btn-outline { border-color: #3D464E; color: var(--ink); background: transparent; }
+.btn-outline:hover { border-color: var(--accent); }
+.btn-spark { background: var(--accent); color: var(--on-accent); }
+.btn-spark:hover { background: var(--accent-hover); }
 
 /* Header */
-.site-header { position: sticky; top: 0; z-index: 10; background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.site-header { position: sticky; top: 0; z-index: 10; background: rgba(17, 20, 23, 0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 14px 24px; padding-top: 14px; padding-bottom: 14px; }
 .logo { display: flex; align-items: center; gap: 11px; text-decoration: none; color: var(--ink); }
 .logo svg { width: 36px; height: 36px; flex: none; }
@@ -92,18 +94,19 @@ p { margin: 0; }
 .aside { font-size: 15px; color: var(--muted); }
 .terminal {
   flex: 1 1 360px; min-width: 0;
-  background: var(--ink);
+  background: var(--panel);
+  border: 1px solid var(--line);
   border-radius: 16px;
   padding: 20px 24px 26px;
   font-family: var(--font-mono);
   font-size: 14px;
   line-height: 1.95;
   color: var(--on-ink-muted);
-  box-shadow: 0 30px 60px -34px rgba(18, 18, 46, 0.55);
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.7);
 }
 .terminal .bar { display: flex; align-items: center; gap: 7px; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--ink-line); }
 .terminal .bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--ink-line); }
-.terminal .bar b { margin-left: auto; font-weight: 400; font-size: 12px; color: #8E90B8; }
+.terminal .bar b { margin-left: auto; font-weight: 400; font-size: 12px; color: var(--muted); }
 .terminal .cmd { color: var(--on-ink); overflow-wrap: anywhere; }
 .terminal .cmd span { color: var(--spark); }
 .terminal .role { color: var(--neuron); }
@@ -138,16 +141,16 @@ p { margin: 0; }
   transition: background 0.15s ease;
 }
 .series-row:hover { background: var(--surface); }
-.series-row .tag { font-size: 14px; font-weight: 600; color: var(--indigo); }
+.series-row .tag { font-size: 14px; font-weight: 600; color: var(--accent); }
 .series-row h3 { font-weight: 600; font-size: 21px; letter-spacing: -0.015em; line-height: 1.25; }
 .series-row p { color: var(--muted); }
 .series-row.build { background: var(--surface); box-shadow: inset 4px 0 0 var(--spark); }
-.series-row.build:hover { background: #ECEEF7; }
+.series-row.build:hover { background: #20272D; }
 .topics { display: flex; flex-wrap: wrap; gap: 8px; margin: 32px 0 0; padding: 0; list-style: none; }
 .topics li { font-size: 14px; font-weight: 500; color: var(--muted); background: var(--surface); padding: 7px 14px; border-radius: 999px; }
 
 /* Services */
-.services { background: var(--ink); color: var(--on-ink-muted); padding-top: 88px; padding-bottom: 88px; }
+.services { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); color: var(--on-ink-muted); padding-top: 88px; padding-bottom: 88px; }
 .services-inner { display: flex; flex-wrap: wrap; gap: 48px 64px; align-items: flex-start; }
 .services-copy { flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
 .services .label { color: var(--neuron); }
@@ -173,8 +176,11 @@ p { margin: 0; }
 
 /* Closing */
 .closing { padding-bottom: 88px; }
-.closing-card { background: var(--ink); border-radius: 20px; padding: clamp(32px, 5vw, 56px); display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between; }
-.closing h2 { flex: 1 1 340px; color: var(--on-ink); font-weight: 700; font-size: clamp(28px, 4.2vw, 44px); line-height: 1.08; letter-spacing: -0.03em; }
+.closing-card { background: var(--accent); border-radius: 20px; padding: clamp(32px, 5vw, 56px); display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between; }
+.closing h2 { flex: 1 1 340px; color: var(--on-accent); font-weight: 700; font-size: clamp(28px, 4.2vw, 44px); line-height: 1.08; letter-spacing: -0.03em; }
+
+.closing-card .btn-spark { background: var(--bg); color: var(--ink); }
+.closing-card .btn-spark:hover { background: #20272D; }
 
 footer { border-top: 1px solid var(--line); padding-top: 28px; padding-bottom: 32px; }
 .foot { display: flex; flex-wrap: wrap; gap: 14px 24px; justify-content: space-between; align-items: center; color: var(--muted); font-size: 14px; }
@@ -212,11 +218,11 @@ footer { border-top: 1px solid var(--line); padding-top: 28px; padding-bottom: 3
   <div class="wrap header-inner">
     <a class="logo" href="#top" aria-label="Nusiva Labs, back to top">
       <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
-        <rect width="64" height="64" rx="15" fill="#12122E"></rect>
+        <rect width="64" height="64" rx="15" fill="#1F262C"></rect>
         <g transform="translate(8 10)">
-          <path d="M13 36V13l22 23V23" stroke="#F3EFE4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
-          <circle cx="13" cy="36" r="5.2" fill="#9AA5FF"></circle>
-          <path d="M35 3Q35.8 9.2 42 10Q35.8 10.8 35 17Q34.2 10.8 28 10Q34.2 9.2 35 3Z" fill="#FFB938"></path>
+          <path d="M13 36V13l22 23V23" stroke="#F2F5F3" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+          <circle cx="13" cy="36" r="5.2" fill="#34D399"></circle>
+          <path d="M35 3Q35.8 9.2 42 10Q35.8 10.8 35 17Q34.2 10.8 28 10Q34.2 9.2 35 3Z" fill="#A7F3D0"></path>
         </g>
       </svg>
       <span class="wordmark">Nusiva<span>Labs</span></span>
